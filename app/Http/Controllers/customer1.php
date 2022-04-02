@@ -32,7 +32,7 @@ class customer1 extends Controller
         }
     }
 
-function send_otp_and_register_user(Request $request){
+ private function  send_otp_and_register_user(Request $request){
 
     $sid = "AC8c9c14a5e759d4f2c334c5db8e47f100"; // Your Account SID from www.twilio.com/console
     $token = "185eb72ee597fc68f0c92f427afc9d32"; // Your Auth Token from www.twilio.com/console
@@ -64,7 +64,7 @@ function send_otp_and_register_user(Request $request){
         $user_id = customer::where('phone', $request->phone)->first();
         if ($user_id==null){
 
-            return send_otp_and_register_user($request);
+            return $this->send_otp_and_register_user($request);
 
         }
        else if ($request->phone == $user_id->phone){
@@ -72,7 +72,7 @@ function send_otp_and_register_user(Request $request){
             return 'this number is used before';
         }
         else{
-            return send_otp_and_register_user($request);
+            return $this->send_otp_and_register_user($request);
 
 
         }

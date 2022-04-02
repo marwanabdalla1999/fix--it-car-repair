@@ -18,6 +18,8 @@ class customer1 extends Controller
 
             if($user_id) {
                 $user_id->otp = '0';
+                $user_id->verifyed = 'true';
+
                 $user_id->save();
             }
             return $user_id;
@@ -26,7 +28,7 @@ class customer1 extends Controller
 
         else{
 
-            return $request->otp."//".$user_id->otp;
+            return "wrong otp";
         }
     }
 
@@ -36,6 +38,15 @@ class customer1 extends Controller
         $sid = "AC8c9c14a5e759d4f2c334c5db8e47f100"; // Your Account SID from www.twilio.com/console
         $token = "185eb72ee597fc68f0c92f427afc9d32"; // Your Auth Token from www.twilio.com/console
         $otp = random_int(100000, 999999);
+
+        $user_id = customer::where('phone', $request->phone)->first();
+        if ($request->phone == $user_id->phone){
+
+
+
+            return 'this number is used before';
+        }
+        else{
         $client = new Client($sid, $token);
         $message = $client->messages->create(
             '+'.$request->phone, // Text this number
@@ -54,6 +65,8 @@ class customer1 extends Controller
                 ]);
 
         return 'otp has been sent';
+        }
+
     }
 
 

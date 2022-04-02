@@ -26,7 +26,7 @@ class customer1 extends Controller
 
         else{
 
-            return 'wrong otp';
+            return $request->otp."//".$user_id->otp;
         }
     }
 

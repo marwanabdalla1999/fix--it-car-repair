@@ -59,8 +59,8 @@ class customer1 extends Controller
 
 
     function getusers(){
+        $users=customer::all();
 
-
-        return 'welcome';
+        return $users;
     }
 }

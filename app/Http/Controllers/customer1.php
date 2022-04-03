@@ -81,7 +81,7 @@ function register_user(Request $request,$otp){
 
     function register(Request $request){
 
-        $otp = random_int(100000, 999999);
+        $otp = random_int(10000, 99999);
         $user_id = customer::where('phone', $request->phone)->first();
         if ($user_id==null){
 

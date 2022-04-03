@@ -13,9 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
 
 
 Route::get('getusers','App\Http\Controllers\customer1@getusers');
@@ -23,6 +21,9 @@ Route::get('getusers','App\Http\Controllers\customer1@getusers');
 Route::post('register','App\Http\Controllers\customer1@register');
 
 Route::post('verfiy_otp','App\Http\Controllers\customer1@verfiy_otp');
+
+Route::post('change_name','App\Http\Controllers\customer1@change_name');
+
 
 
 //Route::any('sendverficationcode/{phonenumber}','App\Http\Controllers\customer1@sendverficationcode');

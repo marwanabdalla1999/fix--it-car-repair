@@ -94,17 +94,24 @@ function register_user(Request $request,$otp){
 
 
         }
-       else if ($request->phone == $user_id->phone){
+       else if ($request->phone == $user_id->phone) {
+           if ($user_id->name == ""|| $user_id->name == null) {
                $user_id->otp = $otp;
                $user_id->save();
+               $this->send_otp($request, $otp);
+               return "registertion not completed";
+           }
+           else {
 
-           $this->send_otp($request,$otp);
+           $user_id->otp = $otp;
+           $user_id->save();
+           $this->send_otp($request, $otp);
 
-            return "registered before";
+           return "registered before";}
+       }
 
 
 
-        }
 
         else{
             if($this->register_user($request,$otp)){

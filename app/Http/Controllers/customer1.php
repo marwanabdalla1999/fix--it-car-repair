@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\customer;
 use Twilio\Rest\Client;
@@ -24,6 +25,7 @@ class customer1 extends Controller
 
     }
     function verfiy_otp(Request $request){
+        $retval='';
         $user_id = customer::where('phone', $request->phone)->first();
         if ($request->otp == $user_id->otp &&$request->otp != 0 && $user_id->otp != 0){
 
@@ -34,7 +36,12 @@ class customer1 extends Controller
 
                 $user_id->save();
             }
-            return $user_id;
+            $retval=response()-> json([
+                'massage'=>'verfied',
+            'data'=>$user_id
+]
+            );
+            return $retval;
 
         }
 

@@ -47,7 +47,12 @@ class customer1 extends Controller
 
         else{
 
-            return "wrong otp";
+            $retval=response()-> json([
+                    'massage'=>'Wrong_otp',
+                    'data'=>''
+                ]
+            );
+            return $retval;
         }
     }
 

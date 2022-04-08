@@ -49,7 +49,7 @@ class customer1 extends Controller
 
             $retval=response()-> json([
                     'massage'=>'Wrong otp',
-                    'data'=>''
+                    'data'=>json()
                 ]
             );
             return $retval;

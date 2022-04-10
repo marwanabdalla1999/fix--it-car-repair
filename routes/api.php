@@ -24,6 +24,7 @@ Route::post('verfiy_otp','App\Http\Controllers\customer1@verfiy_otp');
 
 Route::post('change_name','App\Http\Controllers\customer1@change_name');
 
+Route::post('session','App\Http\Controllers\customer1@session');
 
 
 //Route::any('sendverficationcode/{phonenumber}','App\Http\Controllers\customer1@sendverficationcode');

@@ -49,9 +49,7 @@ class customer1 extends Controller
 
             $retval=response()-> json([
                     'massage'=>'Wrong otp',
-                    'data'=>response()->json([
-                        
-                    ])
+
                 ]
             );
             return $retval;
@@ -92,6 +90,28 @@ function register_user(Request $request,$otp){
 
 }
 
+function session(Request $request){
+    $user_id = customer::where('id', $request->id)->first();
+    if ($user_id){
+        if ($user_id->token==$request->token){
+
+
+            return 'login';
+        }
+        else{
+            return 'logout';
+
+        }
+    }
+    else{
+
+        return 'logout';
+    }
+
+
+
+
+}
 
     function register(Request $request){
 

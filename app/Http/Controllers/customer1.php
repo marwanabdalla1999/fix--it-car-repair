@@ -144,13 +144,9 @@ function session(Request $request){
 
                 return "true";
             }
-          else if ($this->register_user($request,$otp)=="phone is not valid"){
+      
 
-                return 'this number is invalid';
-
-            }
-
-            else return "connection error";
+            else return 'this number is invalid';
 
 
         }

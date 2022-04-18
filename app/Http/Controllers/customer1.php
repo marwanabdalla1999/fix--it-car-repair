@@ -137,12 +137,11 @@ function session(Request $request){
         $otp = random_int(10000, 99999);
         $user_id = customer::where('phone', $request->phone)->first();
         if (!$user_id){
-            return 'this number is invalid';
             if($this->register_user($request,$otp)==true){
 
               //  return $this->send_otp($request,$otp);
 
-                return "true";
+                return $this->register_user($request,$otp);
             }
             else if ($this->register_user($request,$otp)==false)
             {

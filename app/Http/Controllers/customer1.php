@@ -138,13 +138,13 @@ function session(Request $request){
         $user_id = customer::where('phone', $request->phone)->first();
         if (!$user_id){
 
-            if($this->register_user($request,$otp)){
+            if($this->register_user($request,$otp)==true){
 
               //  return $this->send_otp($request,$otp);
 
                 return "true";
             }
-            else
+            else if ($this->register_user($request,$otp)==false)
             {
                 return 'this number is invalid';
             }

@@ -144,9 +144,10 @@ function session(Request $request){
 
                 return "true";
             }
-
-
-            else return 'this number is invalid';
+            else
+            {
+                return 'this number is invalid';
+            }
 
 
         }

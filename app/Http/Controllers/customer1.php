@@ -86,7 +86,7 @@ function register_user(Request $request,$otp){
         ]
         );
 
-    if ($validated->fails()) {
+    if (!$validated) {
         return false;
     }
        else{

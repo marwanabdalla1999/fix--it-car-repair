@@ -87,10 +87,10 @@ function register_user(Request $request,$otp){
         );
 
     if (!$validated) {
-        return true;
+        return 'true';
     }
        else{
-            return false;
+            return 'false';
         /*    $data= customer::Create([
             'name'=> "",
             'phone'=> $request->phone,

@@ -141,6 +141,8 @@ function session(Request $request){
             if($this->register_user($request,$otp)){
 
               //  return $this->send_otp($request,$otp);
+
+                return "true";
             }
           else if ($this->register_user($request,$otp)=="phone is not valid"){
 

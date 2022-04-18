@@ -85,7 +85,11 @@ function register_user(Request $request,$otp){
         'phone'=>'required|regex:/(201)[0-9]{9}/|size:12'
         ]
         );
-        if ($validated){
+
+    if ($validated->fails()) {
+        return false;
+    }
+       else{
             return true;
         /*    $data= customer::Create([
             'name'=> "",
@@ -99,10 +103,6 @@ function register_user(Request $request,$otp){
             }
             else return false;*/
 
-        }
-        else{
-
-            return false;
         }
 
 

@@ -139,9 +139,9 @@ function session(Request $request){
         if (!$user_id){
             if($this->register_user($request,$otp)){
 
-              //  return $this->send_otp($request,$otp);
+               return $this->send_otp($request,$otp);
 
-                return $this->register_user($request,$otp);
+                
             }
             else if ($this->register_user($request,$otp)=='invalid number')
             {

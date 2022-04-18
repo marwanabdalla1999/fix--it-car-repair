@@ -80,12 +80,12 @@ class customer1 extends Controller
 function register_user(Request $request,$otp){
 
 
-        $validated=$request->validate(
+      /*  $validated=$request->validate(
         [
         'phone'=>'required|regex:/(201)[0-9]{9}/'
         ]
-        );
-        if ($validated){
+        );*/
+        if ($request){
             return true;
         /*    $data= customer::Create([
             'name'=> "",

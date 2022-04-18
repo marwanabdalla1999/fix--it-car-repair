@@ -87,10 +87,10 @@ function register_user(Request $request,$otp){
         );
 
     if (!$validated) {
-        return false;
+        return true;
     }
        else{
-            return true;
+            return false;
         /*    $data= customer::Create([
             'name'=> "",
             'phone'=> $request->phone,
@@ -137,13 +137,13 @@ function session(Request $request){
         $otp = random_int(10000, 99999);
         $user_id = customer::where('phone', $request->phone)->first();
         if (!$user_id){
-            if($this->register_user($request,$otp)==true){
+            if($this->register_user($request,$otp)==false){
 
               //  return $this->send_otp($request,$otp);
 
                 return $this->register_user($request,$otp);
             }
-            else if ($this->register_user($request,$otp)==false)
+            else if ($this->register_user($request,$otp)==true)
             {
                 return 'this number is invalid';
             }

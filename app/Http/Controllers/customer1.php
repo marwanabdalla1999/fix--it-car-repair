@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use http\Env\Response;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use App\customer;
-use Illuminate\Validation\Validator;
 use Twilio\Rest\Client;
 use Illuminate\Support\Str;
 

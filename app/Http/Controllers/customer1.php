@@ -24,6 +24,8 @@ class customer1 extends Controller
             return "name changed";
 
     }
+
+
     function verfiy_otp(Request $request){
         $retval='';
         $user_id = customer::where('phone', $request->phone)->first();
@@ -56,6 +58,7 @@ class customer1 extends Controller
         }
     }
 
+
  private function  send_otp(Request $request,$otp){
 
     $sid = "AC8c9c14a5e759d4f2c334c5db8e47f100"; // Your Account SID from www.twilio.com/console
@@ -76,17 +79,32 @@ class customer1 extends Controller
 }
 function register_user(Request $request,$otp){
 
-    $data= customer::Create([
-        'name'=> "",
-        'phone'=> $request->phone,
-        'token'=> Str::random(50),
-        'otp' =>$otp,
-        'verifyed'=>'false'
-    ]);
-    if ($data){
-        return true;
-    }
-    else return false;
+
+        $validated=$request->validate(
+        [
+         $request->phone=>'required|max:11'
+        ]
+        );
+        if ($validated){
+            $data= customer::Create([
+            'name'=> "",
+            'phone'=> $request->phone,
+            'token'=> Str::random(50),
+            'otp' =>$otp,
+            'verifyed'=>'false'
+        ]);
+            if ($data){
+                return true;
+            }
+            else return false;
+
+        }
+        else{
+
+            return 'this number is invalid';
+        }
+
+
 
 }
 
@@ -122,6 +140,11 @@ function session(Request $request){
             if($this->register_user($request,$otp)){
 
                 return $this->send_otp($request,$otp);
+            }
+          else if ($this->register_user($request,$otp)=="phone is not valid"){
+
+                return 'this number is invalid';
+
             }
 
             else return "connection error";
@@ -160,9 +183,5 @@ function session(Request $request){
 
 
 
-    function getusers(){
-        $users=customer::all();
 
-        return $users;
-    }
 }

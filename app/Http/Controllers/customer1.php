@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use App\customer;
-use Ramsey\Uuid\Rfc4122\Validator;
+use Illuminate\Validation\Validator;
 use Twilio\Rest\Client;
 use Illuminate\Support\Str;
 

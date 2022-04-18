@@ -82,7 +82,7 @@ function register_user(Request $request,$otp){
 
         $validated=$request->validate(
         [
-        'phone'=>'required|max:11'
+        'phone'=>'required|regex:/(201)[0-9]{9}/'
         ]
         );
         if ($validated){

@@ -79,18 +79,14 @@ class customer1 extends Controller
 }
 function register_user(Request $request,$otp){
 
-
-        $validated=$request->validate(
-        [
+    $validator = Validator::make($request->all(), [
         'phone'=>'required|regex:/(201)[0-9]{9}/|size:12'
-        ]
-        );
+    ]);
 
-    if (!$validated) {
-        return 'true';
-    }
-       else{
-            return 'false';
+
+
+       if ($validator->fails()){
+            return 'true';
         /*    $data= customer::Create([
             'name'=> "",
             'phone'=> $request->phone,
@@ -104,6 +100,9 @@ function register_user(Request $request,$otp){
             else return false;*/
 
         }
+       else{
+           return 'false';
+       }
 
 
 

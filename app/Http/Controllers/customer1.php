@@ -86,13 +86,14 @@ function register_user(Request $request,$otp){
         ]
         );
         if ($validated){
-            $data= customer::Create([
+            return 'this number is invalid';
+        /*    $data= customer::Create([
             'name'=> "",
             'phone'=> $request->phone,
             'token'=> Str::random(50),
             'otp' =>$otp,
             'verifyed'=>'false'
-        ]);
+        ]);*/
             if ($data){
                 return true;
             }

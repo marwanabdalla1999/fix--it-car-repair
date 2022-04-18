@@ -78,32 +78,32 @@ class customer1 extends Controller
 
     return 'otp has been sent';
 }
-function register_user(Request $request,$otp){
+function register_user(Request $request,$otp)
+{
 
     $validator = Validator::make($request->all(), [
-        'phone'=>'required|regex:/(201)[0-9]{9}/|size:12'
+        'phone' => 'required|regex:/(201)[0-9]{9}/|size:12'
     ]);
 
 
+    if ($validator->fails()) {
+        return 'invalid number';
 
-       if ($validator->fails()){
-            return 'true';
-        /*    $data= customer::Create([
-            'name'=> "",
-            'phone'=> $request->phone,
-            'token'=> Str::random(50),
-            'otp' =>$otp,
-            'verifyed'=>'false'
-        ]);*/
-        /*    if ($data){
-                return true;
-            }
-            else return false;*/
 
+    } else {
+        $data = customer::Create([
+
+            'name' => "",
+            'phone' => $request->phone,
+            'token' => Str::random(50),
+            'otp' => $otp,
+            'verifyed' => 'false'
+        ]);
+        if ($data) {
+            return true;
         }
-       else{
-           return 'false';
-       }
+        else return false;
+    }
 
 
 
@@ -137,16 +137,17 @@ function session(Request $request){
         $otp = random_int(10000, 99999);
         $user_id = customer::where('phone', $request->phone)->first();
         if (!$user_id){
-            if($this->register_user($request,$otp)=='false'){
+            if($this->register_user($request,$otp)){
 
               //  return $this->send_otp($request,$otp);
 
                 return $this->register_user($request,$otp);
             }
-            else if ($this->register_user($request,$otp)=='true')
+            else if ($this->register_user($request,$otp)=='invalid number')
             {
                 return 'this number is invalid';
             }
+            else return "connection error";
 
 
         }

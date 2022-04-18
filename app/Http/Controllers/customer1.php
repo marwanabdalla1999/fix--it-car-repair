@@ -102,7 +102,7 @@ function register_user(Request $request,$otp){
         }
         else{
 
-            return 'this number is invalid';
+            return false;
         }
 
 
@@ -144,7 +144,7 @@ function session(Request $request){
 
                 return "true";
             }
-      
+
 
             else return 'this number is invalid';
 

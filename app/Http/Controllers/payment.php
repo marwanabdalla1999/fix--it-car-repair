@@ -24,7 +24,7 @@ class payment extends Controller
 return $response->object()->token;
     }
 
-    function createordedr($token,$request){
+    function createOrder($token,$request){
 
         $items = [
         ];

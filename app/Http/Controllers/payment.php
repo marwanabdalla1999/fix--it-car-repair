@@ -7,10 +7,8 @@ use Illuminate\Http\Request;
 class payment extends Controller
 {
     function payment(Request $request){
-            $token=$this->gettoken();
-            $order=$this->createOrder($token,$request);
-        $paymentToken = $this->getPaymentToken($order, $token,$request);
-            return $paymentToken;
+
+            return '$paymentToken';
     }
 
 

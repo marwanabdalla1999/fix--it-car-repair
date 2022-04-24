@@ -45,12 +45,12 @@ return $response->object()->token;
     {
         $billingData = [
             "apartment" => "803",
-            "email" => "mardoamster200@gmail.com",
+            "email" => "marwanabdalla1999@gmail.com",
             "floor" => "7",
-            "first_name" => "Clifford",
-            "street" => "Ethan Land",
-            "building" => "8028",
-            "phone_number" => "+201211509014",
+            "first_name" => "Clifford2",
+            "street" => "Ethan Land2",
+            "building" => "802",
+            "phone_number" => "+201011218307",
             "shipping_method" => "PKG",
             "postal_code" => "01898",
             "city" => "Jaskolskiburgh",

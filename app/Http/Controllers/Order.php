@@ -8,7 +8,7 @@ use App\order_model;
 
 class Order extends Controller
 {function session(Request $request){
-    $user_id = customer::where('id', $request->id)->first();
+    $user_id = customer::where('id', $request->user_id)->first();
     if ($user_id){
         if ($user_id->token==$request->token){
 

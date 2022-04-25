@@ -44,18 +44,18 @@ return $response->object()->token;
     public function getPaymentToken($order, $token,$request)
     {
         $billingData = [
-            "apartment" => "803",
+            "apartment" => "705",
             "email" => "marwanabdalla1999@gmail.com",
             "floor" => "7",
-            "first_name" => "Clifford2",
-            "street" => "Ethan Land2",
-            "building" => "802",
+            "first_name" => "marwan",
+            "street" => "ELAmer Gamel",
+            "building" => "24",
             "phone_number" => "+201011218307",
             "shipping_method" => "PKG",
-            "postal_code" => "01898",
-            "city" => "Jaskolskiburgh",
-            "country" => "CR",
-            "last_name" => "Nicolas",
+            "postal_code" => "21532",
+            "city" => "Alexandria",
+            "country" => "EG",
+            "last_name" => "Abdalla",
             "state" => "Utah"
         ];
         $data = [

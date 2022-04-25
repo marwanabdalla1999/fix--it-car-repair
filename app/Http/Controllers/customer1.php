@@ -156,14 +156,14 @@ function session(Request $request){
            if ($user_id->name == ""|| $user_id->name == null) {
                $user_id->otp = $otp;
                $user_id->save();
-            //   $this->send_otp($request, $otp);
+               $this->send_otp($request, $otp);
                return "registertion not completed";
            }
            else {
 
            $user_id->otp = $otp;
            $user_id->save();
-         //  $this->send_otp($request, $otp);
+           $this->send_otp($request, $otp);
 
            return "registered before";}
        }

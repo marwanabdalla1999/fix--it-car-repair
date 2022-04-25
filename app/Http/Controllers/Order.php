@@ -32,7 +32,7 @@ class Order extends Controller
     function create(Request $request){
       $response= $this->session($request);
        if ($response=='login'){
-        $data = Order::Create([
+        $data = order_model::Create([
             'location_lat_lng' => $request->location_lat_lng,
             'user_id' => $request->user_id,
             'car_id' => $request->car_id,

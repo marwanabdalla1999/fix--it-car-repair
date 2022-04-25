@@ -28,7 +28,7 @@ Route::post('session','App\Http\Controllers\customer1@session');
 
 Route::post('payment','App\Http\Controllers\payment@payment');
 
-Route::post('payment','App\Http\Controllers\Order@create');
+Route::post('create_order','App\Http\Controllers\Order@create');
 
 
 //Route::any('sendverficationcode/{phonenumber}','App\Http\Controllers\customer1@sendverficationcode');

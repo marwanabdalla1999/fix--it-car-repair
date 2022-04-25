@@ -37,6 +37,7 @@ class Order extends Controller
             'user_id' => $request->user_id,
             'car_id' => $request->car_id,
             'address' =>$request->address ,
+            'issue' =>$request->issue,
             'payment_way' => $request->payment_way
         ]);
        return $data;

@@ -73,11 +73,17 @@ class Order extends Controller
 
     function getoffers(Request $request){
         $response= $this->session($request);
+
         if ($response=='login'){
 
             $offers=tech_offer::where('order_id',$request->order_id);
+                if ($offers!=null){
+            return $offers;}
 
-            return $offers;
+                else{
+
+                    return 'Empty';
+                }
         }
         else{
             return 'logout';

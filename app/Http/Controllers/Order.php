@@ -76,7 +76,7 @@ class Order extends Controller
 
     //    if ($response=='login'){
 
-            $offers=tech_offer::where('order_id',$request->order_id)->frist();
+            $offers=tech_offer::where('order_id',$request->order_id)->first();
                 if ($offers!=null){
             return $offers;
                 //}

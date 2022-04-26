@@ -30,5 +30,9 @@ Route::post('payment','App\Http\Controllers\payment@payment');
 
 Route::post('create_order','App\Http\Controllers\Order@create');
 
+Route::post('technican_offer','App\Http\Controllers\Order@technican_offer');
+
+Route::get('getoffers','App\Http\Controllers\Order@getoffers');
+
 
 //Route::any('sendverficationcode/{phonenumber}','App\Http\Controllers\customer1@sendverficationcode');

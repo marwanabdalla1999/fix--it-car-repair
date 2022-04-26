@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\customer;
+use App\tech_offer;
 use Illuminate\Http\Request;
 use App\order_model;
 
@@ -46,6 +47,42 @@ class Order extends Controller
            return 'logout';
 
        }
+
+    }
+
+
+    function technican_offer(Request $request){
+        $response= $this->session($request);
+        if ($response=='login'){
+            $data = order_model::Create([
+
+                'user_id' => $request->user_id,
+                'technican_id' => $request->technican_id,
+                'amount' => $request->amount,
+                'time' =>$request->time,
+
+            ]);
+            return $data;
+        }
+        else{
+            return 'logout';
+
+        }
+
+    }
+
+    function getoffers(Request $request){
+        $response= $this->session($request);
+        if ($response=='login'){
+
+            $offers=tech_offer::where('order_id',$request->order_id);
+
+            return $offers;
+        }
+        else{
+            return 'logout';
+
+        }
 
     }
 }

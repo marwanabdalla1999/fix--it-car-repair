@@ -23,7 +23,7 @@
     <body >
     <div class="container">
 
-        <form  action="{{ url('/register_provider') }}" method="get"  id="contact_form">
+        <form  action="{{ url('/api/register_provider') }}" method="get"  id="contact_form">
             <fieldset>
 
                 <!-- Form Name -->

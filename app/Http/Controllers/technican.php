@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\provider_data;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Utils;
 
 class technican extends Controller
 {
@@ -25,6 +26,6 @@ class technican extends Controller
 
         ]);
 
-
+        return $data;
     }
 }

@@ -16,7 +16,7 @@ class technican extends Controller
                 $image=$request->file('photo');
                 $image_name=$image->getClientOriginalName();
                 $path=$request->file('photo')->storeAs($destination,$image_name);
-                    $request['photo']=$image_name;
+                    $request['photo']=$path;
             }
 
         $data = provider_data::Create([

@@ -24,8 +24,7 @@
     <div class="container">
 
         <form  action="{{ url('/api/register_provider') }}" method="POST" enctype="multipart/form-data" id="contact_form">
-            @csrf
-            <fieldset>
+
 
                 <!-- Form Name -->
                 <legend><center><h2><b>Registration Form</b></h2></center></legend><br>
@@ -35,8 +34,9 @@
                 <input type="file"
                        id="avatar" name="photo"
                        accept="image/png, image/jpeg">
+                <input type="submit" >
 
-            </fieldset>
+
         </form>
     </div>
     </div><!-- /.container -->

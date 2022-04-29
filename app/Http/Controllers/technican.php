@@ -23,7 +23,7 @@ class technican extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'token' => Str::random(50),
-            'photo' => $input->image
+            'photo' => $input->photo
 
         ]);
 

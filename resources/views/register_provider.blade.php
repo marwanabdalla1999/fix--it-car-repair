@@ -42,7 +42,7 @@
             >
             <br>
             <br>
-        
+
                 <input type="file"
                        id="avatar" name="photo"
                        >

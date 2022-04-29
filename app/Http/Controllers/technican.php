@@ -28,6 +28,6 @@ class technican extends Controller
 
         ]);
 
-        return $data;
+        return $request->file('photo');
     }
 }

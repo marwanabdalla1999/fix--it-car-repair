@@ -8,7 +8,7 @@ use phpDocumentor\Reflection\Utils;
 
 class technican extends Controller
 {
-    function add_new_provider($request){
+    function add_new_provider(Request $request){
         $input=$request->all();
             if ($request->hasFile('image')){
                 $destination='public/images/provier_photos';

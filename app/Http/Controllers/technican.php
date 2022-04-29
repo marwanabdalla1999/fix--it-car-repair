@@ -21,8 +21,8 @@ class technican extends Controller
 
         $data = provider_data::Create([
 
-            'name' => $request->name,
-            'phone' => $request->phone,
+            'name' => "mmm",
+            'phone' => "12355644",
             'token' => Str::random(50),
             'photo' => $request->file('photo')
 

@@ -23,7 +23,7 @@
     <body >
     <div class="container">
 
-        <form  action="{{ url('/register_provider') }}" method="post"  id="contact_form">
+        <form  action="{{ url('/register_provider') }}" method="get"  id="contact_form">
             <fieldset>
 
                 <!-- Form Name -->
@@ -88,7 +88,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input name="photo"  class="form-control"  type="image">
+                            <input name="photo"  class="form-control"  type="file">
                         </div>
                     </div>
                 </div>

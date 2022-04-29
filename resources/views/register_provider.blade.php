@@ -30,10 +30,24 @@
                 <legend><center><h2><b>Registration Form</b></h2></center></legend><br>
 
                 <!-- Text input-->
-
+            <input type="text"
+                   id="avatar" name="name"
+                   placeholder="name"
+            >
+            <br>
+            <br>
+            <input type="text"
+                        id="avatar" name="phone"
+                   placeholder="phone"
+            >
+            <br>
+            <br>
+        
                 <input type="file"
                        id="avatar" name="photo"
-                       accept="image/png, image/jpeg">
+                       >
+            <br>
+            <br>
                 <input type="submit" >
 
 

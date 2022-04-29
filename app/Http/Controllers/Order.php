@@ -76,7 +76,7 @@ class Order extends Controller
 
     //    if ($response=='login'){
 
-            $offers=tech_offer::where('order_id',$request->order_id)->orderBy('id')->get();;
+            $offers=tech_offer::where('order_id',$request->order_id)->orderBy('id')->get();
                 if ($offers!=null){
             return $offers;
                 //}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\provider_data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Utils;
 
 class technican extends Controller
@@ -22,7 +23,7 @@ class technican extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'token' => Str::random(50),
-            'photo' => $input->image,
+            'photo' => $input->image
 
         ]);
 

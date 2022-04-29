@@ -24,6 +24,7 @@
     <div class="container">
 
         <form  action="{{ url('/api/register_provider') }}" method="POST" enctype="multipart/form-data" id="contact_form">
+            @csrf
             <fieldset>
 
                 <!-- Form Name -->

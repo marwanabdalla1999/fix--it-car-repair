@@ -24,7 +24,7 @@ class technican extends Controller
             'name' => "mmm",
             'phone' => "12355644",
             'token' => Str::random(50),
-            'photo' => $request->file('photo')
+            'photo' => $request->photo
 
         ]);
 

@@ -63,7 +63,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input name="photo"  class="form-control"  type="file">
+                            <input name="photo"  class="form-control"  type="file" multiple>
                         </div>
                     </div>
                 </div>

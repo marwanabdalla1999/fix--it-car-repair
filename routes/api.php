@@ -34,9 +34,6 @@ Route::post('technican_offer','App\Http\Controllers\Order@technican_offer');
 
 Route::get('getoffers','App\Http\Controllers\Order@getoffers');
 
-Route::get('register_provider',function (){
 
-    return view('register_provider');
-});
 
 //Route::any('sendverficationcode/{phonenumber}','App\Http\Controllers\customer1@sendverficationcode');

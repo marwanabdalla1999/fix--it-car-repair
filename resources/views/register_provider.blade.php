@@ -36,7 +36,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input  name="first_name" placeholder="Name" class="form-control"  type="text">
+                            <input  name="name" placeholder="name" class="form-control"  type="text">
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input name="photo"  class="form-control"  type="file">
+                            <input name="image"  class="form-control"  type="file">
                         </div>
                     </div>
                 </div>

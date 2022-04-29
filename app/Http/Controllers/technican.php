@@ -16,7 +16,7 @@ class technican extends Controller
                 $image=$request->file('photo');
                 $image_name=$image->getClientOriginalName();
                 $path=$request->file('photo')->storeAs($destination,$image_name);
-                    $request['photo']=$path;
+                    $request['photo']=$image_name;
             }
 
         $data = provider_data::Create([
@@ -24,10 +24,15 @@ class technican extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'token' => Str::random(50),
-            'photo' => $request->photo
+            'photo' => $image_name
 
         ]);
 
         return $data;
+    }
+
+    public function image($fileName){
+        $path = public_path().'/images/provier_photos/'.$fileName;
+        return Response::download($path);
     }
 }

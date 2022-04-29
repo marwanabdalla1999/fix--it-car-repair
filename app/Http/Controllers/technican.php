@@ -15,15 +15,15 @@ class technican extends Controller
                 $destination='public/images/provier_photos';
                 $image=$request->file('photo');
                 $image_name=$image->getClientOriginalName();
-                $path=$request->file('image')->storeAs($destination,$image_name);
-                    $input['photo']=$image_name;
+                $path=$request->file('photo')->storeAs($destination,$image_name);
+                    $request['photo']=$image_name;
             }
         $data = provider_data::Create([
 
             'name' => $request->name,
             'phone' => $request->phone,
             'token' => Str::random(50),
-            'photo' => $input->photo
+            'photo' => $request->photo
 
         ]);
 

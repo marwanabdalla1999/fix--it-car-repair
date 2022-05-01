@@ -59,22 +59,24 @@ class technican extends Controller
     }
 
     function provider_login(Request $request){
-        $tech_id = provider_login::where('username','password',$request->username,$request->password)->first();
+        $tech_id = provider_login::where('username',$request->username)->first();
 
-        if ($tech_id){
-            $tech_data=provider_data::where('provider_id', $tech_id->id)->first();
-            $response= response()-> json([
-                    'id'=>$tech_id->id,
-                    'name'=>$tech_data->name,
-                    'photo'=>$tech_data->photo,
-                    'token'=>$tech_id->token,
-                    'phone'=>$tech_data->phone
+        if ($tech_id) {
+            if ($tech_id->password == $request->password) {
+
+            $tech_data = provider_data::where('provider_id', $tech_id->id)->first();
+            $response = response()->json([
+                    'id' => $tech_id->id,
+                    'name' => $tech_data->name,
+                    'photo' => $tech_data->photo,
+                    'token' => $tech_id->token,
+                    'phone' => $tech_data->phone
 
 
                 ]
             );
             return $response;
-
+        }
 
         }
 

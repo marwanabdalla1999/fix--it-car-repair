@@ -17,7 +17,7 @@ class technican extends Controller
         if($request->hasFile('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('public/photos/provider_img'), $filename);
+            $file-> move(public_path('public/photo'), $filename);
             $data2['photo']= $filename;
 
         }

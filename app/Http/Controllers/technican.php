@@ -47,7 +47,7 @@ class technican extends Controller
         );
 
 
-        return $data1->id;
+        return $response;
     }
 
     public function image($fileName){

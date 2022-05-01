@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\provider_data;
+use App\provider_login;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Utils;
@@ -10,7 +12,6 @@ use phpDocumentor\Reflection\Utils;
 class technican extends Controller
 {
     function add_new_provider(Request $request){
-        $input=$request->all();
             if ($request->hasFile('photo')){
                 $destination='public/images/provier_photos';
                 $image=$request->file('photo');
@@ -18,17 +19,35 @@ class technican extends Controller
                 $path=$request->file('photo')->storeAs($destination,$image_name);
                     $request['photo']=$image_name;
             }
+        $data1 = provider_login::Create([
+
+            'password' => $request->password,
+            'token' => Str::random(50),
+            'username' => $request->username]);
+
 
         $data = provider_data::Create([
 
             'name' => $request->name,
             'phone' => $request->phone,
-            'token' => Str::random(50),
+            'provider_id' => $data1->id,
             'photo' => $request['photo']
 
         ]);
 
-        return $data;
+       $response= response()-> json([
+                'id'=>$data->provider_id,
+               'name'=>$data->name,
+               'photo'=>$data->photo,
+               'token'=>$data1->token,
+               'phone'=>$data->phone
+
+
+           ]
+        );
+
+
+        return $response;
     }
 
     public function image($fileName){

@@ -18,7 +18,7 @@ class technican extends Controller
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('public/photos/provider_img'), $filename);
-            $data2['photo']= $filename;
+            $data2['photo']= $file;
 
         }
       //  $data2->save();
@@ -34,7 +34,7 @@ class technican extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'provider_id' => $data1->id,
-            'photo' => $this->image($data2['photo'])
+            'photo' =>$data2['photo']
 
         ]);
 

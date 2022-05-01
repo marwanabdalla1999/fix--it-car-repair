@@ -24,15 +24,15 @@ class technican extends Controller
       //  $data2->save();
         $data1 = provider_login::Create([
 
-            'password' => "132516",
+            'password' => $request->password,
             'token' => Str::random(50),
-            'username' => "dasdasd"]);
+            'username' => $request->username]);
 
 
         $data = provider_data::Create([
 
-            'name' => "3535sad",
-            'phone' => "6531dasd",
+            'name' => $request->name,
+            'phone' => $request->phone,
             'provider_id' => $data1->id,
             'photo' => $this->image($data2['photo'])
 

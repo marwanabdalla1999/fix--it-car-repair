@@ -7,7 +7,7 @@
               enctype="multipart/form-data">
             @csrf
             <label><h4>name</h4></label>
-            <input type="file" class="form-control" name='name' required />
+            <input type="text" class="form-control" name='name' required />
             <br>
             <br>
             <br>

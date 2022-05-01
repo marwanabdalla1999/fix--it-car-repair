@@ -54,7 +54,7 @@ class technican extends Controller
     }
 
     public function image($fileName){
-        $path = public_path('public/photos/provider_img').$fileName;
+        $path = 'https://fix--it-car-repair.herokuapp.com/public/photo/'.$fileName;
         return $path;
     }
 

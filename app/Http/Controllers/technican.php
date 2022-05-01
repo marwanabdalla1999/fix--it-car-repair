@@ -59,7 +59,7 @@ class technican extends Controller
     }
 
     function provider_login(Request $request){
-        $tech_id = provider_login::where('username', $request->username,'password',$request->password)->first();
+        $tech_id = provider_login::where('username', $request->username)->first();
 
         if ($tech_id){
             $tech_data=provider_data::where('provider_id', $tech_id->id)->first();

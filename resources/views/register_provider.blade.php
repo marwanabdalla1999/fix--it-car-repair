@@ -1,22 +1,16 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
 
     </head>
     <body >
-    <div class="container">
         <form method="post" action="{{ 'api/store-image' }}"
               enctype="multipart/form-data">
             @csrf
-            <div class="photo">
                 <label><h4>Add image</h4></label>
                 <input type="file" class="form-control" required name="photo">
-            </div>
 
-            <div class="post_button">
                 <button type="submit" class="btn btn-success">Add</button>
-            </div>
+
         </form>
-    </div>
     </body>
 </html>

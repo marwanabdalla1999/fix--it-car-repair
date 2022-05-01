@@ -17,7 +17,7 @@ class technican extends Controller
         if($request->hasFile('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('public/photo'), $filename);
+            $file-> move(public_path('public/photos/provider_img'), $filename);
             $data2['photo']= $filename;
 
         }
@@ -38,7 +38,7 @@ class technican extends Controller
 
         ]);
 
-      /* $response= response()-> json([
+       $response= response()-> json([
                 'id'=>$data->provider_id,
                'name'=>$data->name,
                'photo'=>$data->photo,
@@ -47,14 +47,14 @@ class technican extends Controller
 
 
            ]
-        );*/
+        );
 
 
-        return $data;
+        return $response;
     }
 
     public function image($fileName){
-        $path = public_path().'/images/provier_photos/'.$fileName;
+        $path = 'https://fix--it-car-repair.herokuapp.com/app/public/photos/provider_img'.$fileName;
         return $path;
     }
 

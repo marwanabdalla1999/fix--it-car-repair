@@ -40,5 +40,7 @@ Route::post('/store-image',[\App\Http\Controllers\technican::class,'add_new_prov
 
 Route::post('/provider_login',[\App\Http\Controllers\technican::class,'provider_login']);
 
+Route::post('/session_provider',[\App\Http\Controllers\technican::class,'session']);
+
 
 //Route::any('sendverficationcode/{phonenumber}','App\Http\Controllers\customer1@sendverficationcode');

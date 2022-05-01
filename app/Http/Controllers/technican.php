@@ -81,6 +81,27 @@ class technican extends Controller
         }
 
     }
+    function session(Request $request){
+        $user_id = provider_login::where('id', $request->id)->first();
+        if ($user_id){
+            if ($user_id->token==$request->token){
 
+
+                return 'login';
+            }
+            else{
+                return 'logout';
+
+            }
+        }
+        else{
+
+            return 'logout';
+        }
+
+
+
+
+    }
 
 }

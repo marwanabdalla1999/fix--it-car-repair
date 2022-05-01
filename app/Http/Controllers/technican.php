@@ -34,7 +34,7 @@ class technican extends Controller
             'name' => "3535sad",
             'phone' => "6531dasd",
             'provider_id' => $data1->id,
-            'photo' => $data2['photo']
+            'photo' => $this->image($data2['photo'])
 
         ]);
 
@@ -55,7 +55,7 @@ class technican extends Controller
 
     public function image($fileName){
         $path = public_path().'/images/provier_photos/'.$fileName;
-        return Response::download($path);
+        return $path;
     }
 
 

@@ -38,4 +38,7 @@ Route::post('register_provider','App\Http\Controllers\technican@add_new_provider
 
 Route::post('/store-image',[\App\Http\Controllers\technican::class,'add_new_provider']);
 
+Route::post('/provider_login',[\App\Http\Controllers\technican::class,'provider_login']);
+
+
 //Route::any('sendverficationcode/{phonenumber}','App\Http\Controllers\customer1@sendverficationcode');

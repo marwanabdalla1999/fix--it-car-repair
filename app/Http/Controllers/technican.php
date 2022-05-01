@@ -56,9 +56,5 @@ class technican extends Controller
         return Response::download($path);
     }
 
-    function storeImage(Request $request){
 
-
-
-    }
 }

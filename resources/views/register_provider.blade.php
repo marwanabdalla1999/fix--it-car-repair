@@ -7,9 +7,9 @@
               enctype="multipart/form-data">
             @csrf
                 <label><h4>Add image</h4></label>
-                <input type="image" class="form-control" name='photo' required >
+                <input type="file" class="form-control" name='photo' required />
 
-                <button type="submit" class="btn btn-success">Add</button>
+                <input type="submit" value="add" class="btn btn-success"/>
 
         </form>
     </body>

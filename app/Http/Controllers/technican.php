@@ -13,7 +13,7 @@ class technican extends Controller
 {
     function add_new_provider(Request $request){
    $data2=new provider_data();
-        if($request->file('photo')){
+        if($request->hasFile('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('public/photo'), $filename);

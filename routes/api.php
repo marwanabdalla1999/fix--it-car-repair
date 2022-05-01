@@ -36,7 +36,6 @@ Route::get('getoffers','App\Http\Controllers\Order@getoffers');
 
 Route::post('register_provider','App\Http\Controllers\technican@add_new_provider');
 
-Route::post('/store-image',[\App\Http\Controllers\technican::class,'storeImage'])
-    ->name('images.store');
+Route::post('/store-image',[\App\Http\Controllers\technican::class,'storeImage']);
 
 //Route::any('sendverficationcode/{phonenumber}','App\Http\Controllers\customer1@sendverficationcode');

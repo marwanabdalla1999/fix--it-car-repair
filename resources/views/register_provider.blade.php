@@ -5,7 +5,7 @@
     </head>
     <body >
     <div class="container">
-        <form method="post" action="{{ route('images.store') }}"
+        <form method="post" action="{{ 'api/store-image' }}"
               enctype="multipart/form-data">
             @csrf
             <div class="image">

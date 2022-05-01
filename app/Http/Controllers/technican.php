@@ -13,11 +13,11 @@ class technican extends Controller
 {
     function add_new_provider(Request $request){
    $data2=new provider_data();
-        if($request->file('image')){
-            $file= $request->file('image');
+        if($request->file('photo')){
+            $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('public/Image'), $filename);
-            $data2['image']= $filename;
+            $file-> move(public_path('public/photo'), $filename);
+            $data2['photo']= $filename;
         }
         $data2->save();
         $data1 = provider_login::Create([
@@ -32,7 +32,7 @@ class technican extends Controller
             'name' => "3535sad",
             'phone' => "6531dasd",
             'provider_id' => $data1->id,
-            'photo' => $data2['image']
+            'photo' => $data2['photo']
 
         ]);
 

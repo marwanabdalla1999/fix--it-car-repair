@@ -8,9 +8,9 @@
         <form method="post" action="{{ 'api/store-image' }}"
               enctype="multipart/form-data">
             @csrf
-            <div class="image">
+            <div class="photo">
                 <label><h4>Add image</h4></label>
-                <input type="file" class="form-control" required name="image">
+                <input type="file" class="form-control" required name="photo">
             </div>
 
             <div class="post_button">

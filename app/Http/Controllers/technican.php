@@ -12,30 +12,31 @@ use phpDocumentor\Reflection\Utils;
 class technican extends Controller
 {
     function add_new_provider(Request $request){
-            if ($request->hasFile('photo')){
-                $destination='public/images/provier_photos';
-                $image=$request->file('photo');
-                $image_name=$image->getClientOriginalName();
-                $path=$request->file('photo')->storeAs($destination,$image_name);
-                    $request['photo']=$image_name;
-            }
+   $data2=new provider_data();
+        if($request->file('image')){
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/Image'), $filename);
+            $data2['image']= $filename;
+        }
+        $data2->save();
         $data1 = provider_login::Create([
 
-            'password' => $request->password,
+            'password' => "132516",
             'token' => Str::random(50),
-            'username' => $request->username]);
+            'username' => "dasdasd"]);
 
 
         $data = provider_data::Create([
 
-            'name' => $request->name,
-            'phone' => $request->phone,
+            'name' => "3535sad",
+            'phone' => "6531dasd",
             'provider_id' => $data1->id,
-            'photo' => $request['photo']
+            'photo' => $data2['image']
 
         ]);
 
-       $response= response()-> json([
+      /* $response= response()-> json([
                 'id'=>$data->provider_id,
                'name'=>$data->name,
                'photo'=>$data->photo,
@@ -44,14 +45,20 @@ class technican extends Controller
 
 
            ]
-        );
+        );*/
 
 
-        return $response;
+        return $data;
     }
 
     public function image($fileName){
         $path = public_path().'/images/provier_photos/'.$fileName;
         return Response::download($path);
+    }
+
+    function storeImage(Request $request){
+
+
+
     }
 }

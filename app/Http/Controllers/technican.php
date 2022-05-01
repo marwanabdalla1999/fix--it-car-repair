@@ -20,7 +20,6 @@ class technican extends Controller
             $file-> move(public_path('public/photo'), $filename);
             $data2['photo']= $filename;
 
-            return $filename;
         }
       //  $data2->save();
         $data1 = provider_login::Create([

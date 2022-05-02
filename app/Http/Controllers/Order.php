@@ -110,7 +110,7 @@ class Order extends Controller
                $data=$this->getDataAttribute($request);
                 foreach($data as $fields)
                 {
-                    $requests=array_merge($requests->toArray(), requests::where('issue',$fields)->get()->toArray());
+                    $requests=array_merge($requests, requests::where('issue',$fields)->get()->toArray());
 
 
 

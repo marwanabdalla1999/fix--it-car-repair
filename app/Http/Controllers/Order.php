@@ -118,7 +118,7 @@ class Order extends Controller
                 }
 
         if ($requests!=null){
-            $requests_final=array();
+            $requests_final=[];
 
             foreach ($requests as $req){
 

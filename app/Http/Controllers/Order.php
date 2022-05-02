@@ -107,12 +107,13 @@ class Order extends Controller
            $response= $this->session_provider($request);
          $requests="";
             if ($response=='login'){
-                $size = count(collect($request)->get('specialized'));
-                for ($i = 0; $i < $size; $i++)
+               $data=getDataAttribute($request);
+
+                foreach(data as $fields)
                 {
 
 
-                    $requests.=requests::where('issue',$request->get('specialized')[$i])->get();
+                    $requests.=requests::where('issue',$fields)->get();
 
 
                 }
@@ -151,5 +152,10 @@ class Order extends Controller
 
 
 
+    }
+
+    public function getDataAttribute($request)
+    {
+        return explode(',', $request->issue);
     }
 }

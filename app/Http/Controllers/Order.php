@@ -125,8 +125,8 @@ class Order extends Controller
                $order_data =order_model::where('id',$req['order_id'])->first();
 
                $temp= response()->json([
-                   'id' => $req->id,
-                   'issue' => $req->issue,
+                   'id' => $req['id'],
+                   'issue' => $req['issue'],
                    'address' => $order_data->address,
                    'payment_way' => $order_data->payment_way,
                    'location_lat_lng' => $order_data->location_lat_lng]);

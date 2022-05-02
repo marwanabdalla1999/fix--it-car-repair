@@ -108,7 +108,7 @@ class Order extends Controller
         $requests='';
             if ($response=='login'){
                $data=$this->getDataAttribute($request);
-                foreach(data as $fields)
+                foreach($data as $fields)
                 {
 
                     $requests.=requests::where('issue',$fields)->get();

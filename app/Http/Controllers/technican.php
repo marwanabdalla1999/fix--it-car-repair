@@ -43,7 +43,8 @@ class technican extends Controller
                'name'=>$data->name,
                'photo'=>$data->photo,
                'token'=>$data1->token,
-               'phone'=>$data->phone
+               'phone'=>$data->phone,
+               'rate' => $data->rate
 
 
            ]

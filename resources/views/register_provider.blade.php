@@ -21,12 +21,12 @@
             <br>
             <br>
             <br>
-            <label><h4>phone</h4></label>
+            <label><h4>specialized</h4></label>
             <input type="text" class="form-control" name='specialized' required />
             <br>
             <br>
             <br>
-            <label><h4>specialized in</h4></label>
+            <label><h4>phone</h4></label>
             <input type="text" class="form-control" name='phone' required />
             <br>
             <br>

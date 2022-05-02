@@ -26,6 +26,11 @@
             <br>
             <br>
             <br>
+            <label><h4>specialized at</h4></label>
+            <input type="text" class="form-control" name='specialized_at' required />
+            <br>
+            <br>
+            <br>
                 <label><h4>Add image</h4></label>
                 <input type="file" class="form-control" name='photo' required />
                     <br>

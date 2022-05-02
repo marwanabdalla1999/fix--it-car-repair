@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\customer;
+use App\provider_login;
+use App\requests;
 use App\tech_offer;
 use Illuminate\Http\Request;
 use App\order_model;
@@ -41,6 +43,14 @@ class Order extends Controller
             'issue' =>$request->issue,
             'payment_way' => $request->payment_way
         ]);
+
+           requests::Create([
+               'user_id' => $data->user_id,
+               'order_id' => $data->id,
+               'issue'=>$request->issue
+
+           ]);
+
        return $data;
        }
        else{
@@ -90,6 +100,56 @@ class Order extends Controller
             return 'logout';
 
         }
+
+    }
+
+    function getrequests(Request $request){
+           $response= $this->session_provider($request);
+         $requests="";
+            if ($response=='login'){
+                $size = count(collect($request)->get('specialized'));
+                for ($i = 0; $i < $size; $i++)
+                {
+
+
+                    $requests.=requests::where('issue',$request->get('specialized')[$i])->get();
+
+
+                }
+        if ($requests!=null){
+            return $requests;
+            }
+
+               else{
+
+            return 'Empty';
+                  }
+        }
+        else{
+            return 'logout';
+        }
+
+    }
+    function session_provider(Request $request){
+        $user_id = provider_login::where('id', $request->id)->first();
+        if ($user_id){
+            if ($user_id->token==$request->token){
+
+
+                return 'login';
+            }
+            else{
+                return 'logout';
+
+            }
+        }
+        else{
+
+            return 'logout';
+        }
+
+
+
 
     }
 }

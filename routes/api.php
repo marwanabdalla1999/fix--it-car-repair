@@ -43,4 +43,8 @@ Route::post('/provider_login',[\App\Http\Controllers\technican::class,'provider_
 Route::post('/session_provider',[\App\Http\Controllers\technican::class,'session']);
 
 
+Route::post('/getrequests',[\App\Http\Controllers\Order::class,'getrequests']);
+
+
+
 //Route::any('sendverficationcode/{phonenumber}','App\Http\Controllers\customer1@sendverficationcode');

@@ -105,20 +105,20 @@ class Order extends Controller
 
     function getrequests(Request $request){
            $response= $this->session_provider($request);
-
+        $requests='';
             if ($response=='login'){
-               $data=getDataAttribute($request);
-                $requests=requests::where('issue',$request->issue)->get();
+               $data=$this->getDataAttribute($request);
                 foreach(data as $fields)
                 {
 
+                    $requests.=requests::where('issue',$fields)->get();
 
 
 
 
                 }
         if ($requests!=null){
-            return 'trtrt';
+            return $requests;
             }
 
                else{

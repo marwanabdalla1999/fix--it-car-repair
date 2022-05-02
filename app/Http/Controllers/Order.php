@@ -121,7 +121,7 @@ class Order extends Controller
             $requests_final=array();
 
 
-/*
+
                $order_data =order_model::where('id',(int)$requests->order_id)->frist();
 
                $temp= response()->json([
@@ -132,9 +132,9 @@ class Order extends Controller
                    'location_lat_lng' => $order_data->location_lat_lng]);
 
                 $requests_final[]=$temp;
-*/
 
-            return $requests[0]->order_id;
+
+            return $requests['order_id'];
 
         }
 

@@ -120,23 +120,22 @@ class Order extends Controller
         if ($requests!=null){
             $requests_final=array();
 
+            foreach ($requests as $req){
 
-
-               $order_data =order_model::where('id',(int)$requests->order_id)->frist();
+               $order_data =order_model::where('id',$req['order_id'])->frist();
 
                $temp= response()->json([
-                   'id' => $requests->id,
-                   'issue' => $requests->issue,
+                   'id' => $req->id,
+                   'issue' => $req->issue,
                    'address' => $order_data->address,
                    'payment_way' => $order_data->payment_way,
                    'location_lat_lng' => $order_data->location_lat_lng]);
 
                 $requests_final[]=$temp;
 
-
-            return $requests['order_id'];
-
-        }
+            }
+            return $requests_final;
+            }
 
                else{
 

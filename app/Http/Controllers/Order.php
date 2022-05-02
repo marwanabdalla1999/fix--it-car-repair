@@ -126,6 +126,8 @@ class Order extends Controller
 
                $temp= response()->json([
                    'id' => $req['id'],
+                   'user_id' => $req['user_id'],
+                   'order_id' => $req['order_id'],
                    'issue' => $req['issue'],
                    'address' => $order_data->address,
                    'payment_way' => $order_data->payment_way,

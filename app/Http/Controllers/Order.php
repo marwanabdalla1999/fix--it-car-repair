@@ -122,7 +122,7 @@ class Order extends Controller
 
             foreach ($requests as $req){
 
-            /*   $order_data =order_model::where('id',(int)$req->order_id)->frist();
+               $order_data =order_model::where('id',(int)$req->order_id)->frist();
 
                $temp= response()->json([
                    'id' => $req->id,
@@ -131,11 +131,12 @@ class Order extends Controller
                    'payment_way' => $order_data->payment_way,
                    'location_lat_lng' => $order_data->location_lat_lng]);
 
-                $requests_final[]=$temp;*/
-                return $req->order_id;
+                $requests_final[]=$temp;
 
             }
-            }
+            return $req->order_id;
+
+        }
 
                else{
 

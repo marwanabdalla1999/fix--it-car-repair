@@ -105,13 +105,12 @@ class Order extends Controller
 
     function getrequests(Request $request){
            $response= $this->session_provider($request);
-        $requests='';
+        $requests=[];
             if ($response=='login'){
                $data=$this->getDataAttribute($request);
                 foreach($data as $fields)
                 {
-
-                    $requests.=requests::where('issue',$fields)->get();
+                    $requests=array_merge($requests, requests::where('issue',$fields)->get());
 
 
 

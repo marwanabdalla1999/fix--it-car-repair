@@ -122,7 +122,7 @@ class Order extends Controller
 
             foreach ($requests as $req){
 
-               $order_data =order_model::where('id',(int)$req->order_id)->frist();
+               $order_data =order_model::where('id',(int)$req[0]->order_id)->frist();
 
                $temp= response()->json([
                    'id' => $req->id,

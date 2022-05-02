@@ -26,8 +26,8 @@
             <br>
             <br>
             <br>
-            <label><h4>specialized at</h4></label>
-            <input type="text" class="form-control" name='specialized_at' required />
+            <label><h4>specialized in</h4></label>
+            <input type="text" class="form-control" name='specialized_in' required />
             <br>
             <br>
             <br>

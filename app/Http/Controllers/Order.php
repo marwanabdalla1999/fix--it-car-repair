@@ -105,7 +105,7 @@ class Order extends Controller
 
     function getrequests(Request $request){
            $response= $this->session_provider($request);
-         $requests="";
+
             if ($response=='login'){
                $data=getDataAttribute($request);
                 $requests=requests::where('issue',$request->issue)->get();
@@ -118,7 +118,7 @@ class Order extends Controller
 
                 }
         if ($requests!=null){
-            return $requests;
+            return 'trtrt';
             }
 
                else{

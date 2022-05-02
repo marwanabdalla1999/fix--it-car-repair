@@ -75,7 +75,7 @@ class technican extends Controller
                     'photo' => $tech_data->photo,
                     'token' => $tech_id->token,
                     'phone' => $tech_data->phone,
-                    'specialized at' => $tech_data->specialized_at,
+                    'specialized_in' => $tech_data->specialized_in,
                     'rate' => $tech_data->rate
 
                 ]

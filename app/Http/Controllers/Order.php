@@ -87,7 +87,7 @@ class Order extends Controller
         if ($response=='login'){
 
             $offers=tech_offer::where('order_id',$request->order_id)->orderBy('id')->get();
-                if ($offers){
+                if ($offers!= null && $offers != "[]"){
             return $offers;
                 }
 

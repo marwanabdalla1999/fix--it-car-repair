@@ -108,12 +108,12 @@ class Order extends Controller
          $requests="";
             if ($response=='login'){
                $data=getDataAttribute($request);
-
+                $requests=requests::where('issue',$request->issue)->get();
                 foreach(data as $fields)
                 {
 
 
-                    $requests.=requests::where('issue',$fields)->get();
+
 
 
                 }

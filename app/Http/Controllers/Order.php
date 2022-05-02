@@ -149,6 +149,23 @@ class Order extends Controller
         }
 
     }
+    function send_offer(Request $request){
+
+        $data = tech_offer::Create([
+
+            'user_id' => $request->user_id,
+            'amount' => $request->amount,
+            'time' => $request->time,
+            'order_id' =>$request->order_id,
+            'technican_id' =>$request->technican_id,
+            'distance' =>$request->distance,
+
+
+        ]);
+
+                return $data;
+
+    }
     function session_provider(Request $request){
         $user_id = provider_login::where('id', $request->id)->first();
         if ($user_id){

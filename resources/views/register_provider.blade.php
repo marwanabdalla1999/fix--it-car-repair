@@ -31,9 +31,9 @@
             <br>
             <br>
             <br>
-                <label><h4>Add image</h4></label>
-                <input type="file" class="form-control" name='photo' required />
-                    <br>
+            <label><h4>Add image</h4></label>
+            <input type="file" class="form-control" name='photo' required />
+            <br>
             <br>
             <br>
                 <input type="submit" value="add" class="btn btn-success"/>

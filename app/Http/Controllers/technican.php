@@ -35,7 +35,7 @@ class technican extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'provider_id' => $data1->id,
-            'specialized_in' => $request->specialized_in,
+            'specialized_in' =>$request->specialized_in,
             'photo' => $this->image($data2['photo'])
 
         ]);

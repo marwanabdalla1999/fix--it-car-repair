@@ -134,7 +134,7 @@ class Order extends Controller
                 $requests_final[]=$temp;
 */
 
-            return $requests->order_id;
+            return $requests[0]->order_id;
 
         }
 

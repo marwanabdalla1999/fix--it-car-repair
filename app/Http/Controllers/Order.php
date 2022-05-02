@@ -131,7 +131,7 @@ class Order extends Controller
                    'payment_way' => $order_data->payment_way,
                    'location_lat_lng' => $order_data->location_lat_lng]);
 
-                $requests_final[]=$temp;
+                $requests_final=array_merge($requests_final,$temp);
 
             }
             return $requests_final;

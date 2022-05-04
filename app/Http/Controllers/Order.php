@@ -142,7 +142,7 @@ class Order extends Controller
 
 
             ]);
-            return $data;
+            return 'offer has been sent';
 
         }
         else{

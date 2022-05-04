@@ -178,7 +178,7 @@ class Order extends Controller
         $response= $this->session($request);
         if ($response=='login'){
 
-           $order= order_model::where('id',$request->id)->frist();
+           $order= order_model::where('id',$request->order_id)->first();
             if ($order!= null){
                 $order->state = 'cancelled';
 

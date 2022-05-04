@@ -129,20 +129,27 @@ class Order extends Controller
 
     }
     function send_offer(Request $request){
+        $response= $this->session_provider($request);
+        if ($response=='login'){
+            $data = tech_offer::Create([
 
-        $data = tech_offer::Create([
-
-            'user_id' => $request->user_id,
-            'amount' => $request->amount,
-            'time' => $request->time,
-            'order_id' =>$request->order_id,
-            'technican_id' =>$request->technican_id,
-            'distance' =>$request->distance,
+                'user_id' => $request->user_id,
+                'amount' => $request->amount,
+                'time' => $request->time,
+                'order_id' =>$request->order_id,
+                'technican_id' =>$request->technican_id,
+                'distance' =>$request->distance,
 
 
-        ]);
+            ]);
+            return $data;
 
-                return $data;
+        }
+        else{
+            return 'logout';
+        }
+
+
 
     }
     function session_provider(Request $request){

@@ -47,6 +47,7 @@ Route::post('/getrequests',[\App\Http\Controllers\Order::class,'getrequests']);
 
 Route::post('/send_offer',[\App\Http\Controllers\Order::class,'send_offer']);
 
+Route::post('/cancel_order',[\App\Http\Controllers\Order::class,'cancel_order']);
 
 
 

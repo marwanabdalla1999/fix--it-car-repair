@@ -41,15 +41,11 @@ class Order extends Controller
             'car_id' => $request->car_id,
             'address' =>$request->address ,
             'issue' =>$request->issue,
-            'payment_way' => $request->payment_way
+            'payment_way' => $request->payment_way,
+           'state'=>'searching for technician'
+
         ]);
 
-           requests::Create([
-               'user_id' => $data->user_id,
-               'order_id' => $data->id,
-               'issue'=>$request->issue
-
-           ]);
 
        return $data;
        }
@@ -110,39 +106,22 @@ class Order extends Controller
                $data=$this->getDataAttribute($request);
                 foreach($data as $fields)
                 {
-                    $requests=array_merge($requests, requests::where('issue',$fields)->orderBy('id')->get()->toArray());
-
-
-
+                    $requests=array_merge($requests, order_model::where([
+                        ['state','=', 'searching for technician'],
+                        ['issue', '=', $fields]])->orderBy('created_at')->get()->toArray());
 
                 }
 
         if ($requests!=null){
-            $requests_final=array();
+            return $requests;
 
-            foreach ($requests as $req){
 
-               $order_data =order_model::where('id',$req['order_id'])->first();
-
-               $temp= response()->json([
-                   'id' => $req['id'],
-                   'user_id' => $req['user_id'],
-                   'order_id' => $req['order_id'],
-                   'issue' => $req['issue'],
-                   'address' => $order_data->address,
-                   'payment_way' => $order_data->payment_way,
-                   'location_lat_lng' => $order_data->location_lat_lng]);
-
-                $requests_final[]=$temp;
-
-            }
-            return $requests_final;
-            }
-
-               else{
-
+        }
+        else{
             return 'Empty';
-                  }
+
+        }
+
         }
         else{
             return 'logout';

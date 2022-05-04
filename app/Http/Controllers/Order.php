@@ -121,8 +121,8 @@ class Order extends Controller
                 }
                 $finalrequests = array_diff($requests, $removed_requests);
 
-        if ($finalrequests!=null){
-            return $finalrequests;
+        if ($requests!=null){
+            return $requests;
 
 
         }

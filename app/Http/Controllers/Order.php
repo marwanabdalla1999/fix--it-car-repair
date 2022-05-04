@@ -101,9 +101,9 @@ class Order extends Controller
 
     function getrequests(Request $request){
            $response= $this->session_provider($request);
-        $requests=[];
+        $requests=array();
         $finalrequests=[];
-        $removed_requests=[];
+        $removed_requests=array();
             if ($response=='login'){
                $data=$this->getDataAttribute($request);
                 foreach($data as $fields)
@@ -120,7 +120,7 @@ class Order extends Controller
                         ['order_id', '=', $req['id']]])->get()->toArray());
 
                 }
-             //   $finalrequests = array_diff($removed_requests, $removed_requests);
+                $finalrequests = array_diff($requests, $removed_requests);
 
         if ($removed_requests!=null){
             return $removed_requests;

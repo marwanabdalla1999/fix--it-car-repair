@@ -102,6 +102,7 @@ class Order extends Controller
     function getrequests(Request $request){
            $response= $this->session_provider($request);
         $requests=[];
+        $removed_requests=[];
             if ($response=='login'){
                $data=$this->getDataAttribute($request);
                 foreach($data as $fields)
@@ -111,9 +112,17 @@ class Order extends Controller
                         ['issue', '=', $fields]])->orderBy('created_at')->get()->toArray());
 
                 }
+                foreach($requests as $req)
+                {
+                    $removed_requests=array_merge($removed_requests, tech_offer::where([
+                        ['technican_id','=',$request->id],
+                        ['order_id', '=', $req->id]])->get()->toArray());
 
-        if ($requests!=null){
-            return $requests;
+                }
+                $finalrequests = array_diff($requests, $removed_requests);
+
+        if ($finalrequests!=null){
+            return $finalrequests;
 
 
         }
@@ -152,6 +161,7 @@ class Order extends Controller
 
 
     }
+
     function session_provider(Request $request){
         $tech_id = provider_login::where('id', $request->id)->first();
         if ($tech_id){

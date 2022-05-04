@@ -120,7 +120,7 @@ class Order extends Controller
                         ['order_id', '=', $req['id']]])->get()->toArray());
 
                 }
-                $finalrequests = array_diff($requests, $removed_requests);
+                $finalrequests = array_diff($requests, $requests);
 
         if ($finalrequests!=null){
             return $finalrequests;

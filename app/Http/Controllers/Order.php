@@ -116,7 +116,7 @@ class Order extends Controller
                 {
                     $removed_requests=array_merge($removed_requests, tech_offer::where([
                         ['technican_id','=',$request->id],
-                        ['order_id', '=', $req->id]])->get()->toArray());
+                        ['order_id', '=', $req['id']]])->get()->toArray());
 
                 }
                 $finalrequests = array_diff($requests, $removed_requests);

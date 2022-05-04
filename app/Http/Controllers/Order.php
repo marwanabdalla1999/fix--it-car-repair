@@ -137,7 +137,7 @@ class Order extends Controller
                 'amount' => $request->amount,
                 'time' => $request->time,
                 'order_id' =>$request->order_id,
-                'technican_id' =>$request->technican_id,
+                'technican_id' =>$request->id,
                 'distance' =>$request->distance,
 
 
@@ -153,9 +153,9 @@ class Order extends Controller
 
     }
     function session_provider(Request $request){
-        $user_id = provider_login::where('id', $request->id)->first();
-        if ($user_id){
-            if ($user_id->token==$request->token){
+        $tech_id = provider_login::where('id', $request->id)->first();
+        if ($tech_id){
+            if ($tech_id->token==$request->token){
 
 
                 return 'login';

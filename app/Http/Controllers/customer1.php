@@ -20,9 +20,14 @@ class customer1 extends Controller
                 $user_id->name = $request->name;
 
                 $user_id->save();
+                return "name changed";
+
+            }
+            else{
+                return "user not found";
+
             }
 
-            return "name changed";
 
     }
 

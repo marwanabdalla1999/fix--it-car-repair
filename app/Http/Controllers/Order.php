@@ -172,4 +172,30 @@ class Order extends Controller
     {
         return explode(',', $request->issue);
     }
+
+
+    function cancel_order(Request $request){
+        $response= $this->session($request);
+        if ($response=='login'){
+
+           $order= order_model::where('id',$request->id)->frist();
+            if ($order!= null){
+                $order->state = 'cancelled';
+
+                $order->save();
+
+                return 'cancelled';
+            }
+
+            else{
+
+                return 'order not found';
+            }
+        }
+        else{
+            return 'logout';
+
+        }
+
+    }
 }

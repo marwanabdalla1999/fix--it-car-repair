@@ -231,7 +231,7 @@ class Order extends Controller
 
                     }
                 if (!$found){
-                    array_add($return_array, $req);
+                    $return_array=$return_array->push($req);
 
                 }
 

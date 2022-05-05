@@ -123,8 +123,8 @@ class Order extends Controller
 
                 $finalrequests = $this->diff($requests, $removed_requests);
 
-        if ($removed_requests!=null){
-            return $removed_requests;
+        if ($finalrequests!=null){
+            return $finalrequests;
 
 
         }
@@ -223,13 +223,15 @@ class Order extends Controller
     {
                 $return_array=array();
         foreach ($requests as $req){
-        foreach ($removed_requests as $removed_req){
             $found=false;
+            foreach ($removed_requests as $removed_req){
             if ($req['id']==$removed_req['order_id']){
 
                          $found=true;
 
-                    }}
+                    }
+
+        }
                 if (!$found){
                     $return_array[]=$req;
 

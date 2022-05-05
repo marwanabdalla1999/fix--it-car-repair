@@ -121,10 +121,10 @@ class Order extends Controller
 
                 }
 
-                $finalrequests = array_diff(array(), array());
+                $finalrequests = $this->diff($requests, $removed_requests);
 
-        if ($removed_requests!=null){
-            return $removed_requests;
+        if ($finalrequests!=null){
+            return $finalrequests;
 
 
         }
@@ -215,6 +215,33 @@ class Order extends Controller
             return 'logout';
 
         }
+
+    }
+
+    private function diff(array $requests, array $removed_requests)
+    {
+                $return_array=array();
+        foreach ($requests as $req){
+        foreach ($removed_requests as $removed_req){
+            $found=false;
+            if ($req['order_id']==$removed_req['order_id']){
+
+                         $found=true;
+
+                    }
+                if (!$found){
+                    array_add($return_array, $req);
+
+                }
+
+
+                }
+
+
+            }
+
+        return $return_array;
+
 
     }
 }

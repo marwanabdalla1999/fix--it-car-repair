@@ -128,6 +128,7 @@ class Order extends Controller
 
 
         }
+
         else{
             return 'Empty';
 
@@ -224,7 +225,7 @@ class Order extends Controller
         foreach ($requests as $req){
         foreach ($removed_requests as $removed_req){
             $found=false;
-            if ($req['order_id']==$removed_req['order_id']){
+            if ($req['id']==$removed_req['order_id']){
 
                          $found=true;
 

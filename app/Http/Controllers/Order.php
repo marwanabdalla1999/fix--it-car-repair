@@ -123,8 +123,8 @@ class Order extends Controller
 
                 $finalrequests = $this->diff($requests, $removed_requests);
 
-        if ($requests!=null){
-            return $requests;
+        if ($removed_requests!=null){
+            return $removed_requests;
 
 
         }

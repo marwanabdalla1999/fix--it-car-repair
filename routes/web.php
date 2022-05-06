@@ -21,3 +21,7 @@ Route::get('register_provider',function (){
 
     return view('register_provider');
 });
+Route::get('car_data',function (){
+
+    return view('assign_cars_data');
+});

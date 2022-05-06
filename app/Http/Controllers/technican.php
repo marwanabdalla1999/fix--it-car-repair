@@ -113,29 +113,38 @@ class technican extends Controller
 
     function cardata(Request $request){
         $data5=new brand_type();
-        if($request->hasFile('photo1')){
-            $file= $request->file('photo1');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('public/photo'), $filename);
-            $data5['photo']= $filename;
+        $test=brand_type::where('type',$request->type);
+        if ($test==null){
+        if($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('public/photo'), $filename);
+            $data5['photo'] = $filename;
 
 
+            $path = 'https://fix--it-car-repair.herokuapp.com/public/photo/' . $data5['photo'];
 
-        $path='https://fix--it-car-repair.herokuapp.com/public/photo/'.$data5['photo'];
+            $data = brand_type::Create([
+                'type' => $request->type,
+                'brand' => $request->brand,
+                'photo' => $path
 
-        $data=brand_type::Create([
-            'type'=>$request->type,
-                'brand'=>$request->brand,
-            'photo'=>$path
-
-        ]);
-        $data1=brand_type_model::Create([
-            'type'=>$request->type,
-            'model'=>$request->model,
-            'brand'=>$request->brand
-        ]);
+            ]);
+            $data1 = brand_type_model::Create([
+                'type' => $request->type,
+                'model' => $request->model,
+                'brand' => $request->brand
+            ]);
             return $data;
+        }
+        else{
 
+            $data1 = brand_type_model::Create([
+                'type' => $request->type,
+                'model' => $request->model,
+                'brand' => $request->brand
+            ]);
+        }
         }
         else{
 

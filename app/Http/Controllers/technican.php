@@ -116,10 +116,11 @@ class technican extends Controller
         if($request->hasFile('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('public/photo/'), $filename);
+            $file-> move(public_path('public/photo'), $filename);
             $data5['photo']= $filename;
 
         }
+
         $path='https://fix--it-car-repair.herokuapp.com/public/photo/'.$data5['photo'];
 
         $data=brand_type::Create([

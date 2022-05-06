@@ -119,7 +119,7 @@ class technican extends Controller
             $file-> move(public_path('public/photo'), $filename);
             $data5['photo']= $filename;
 
-        }
+
 
         $path='https://fix--it-car-repair.herokuapp.com/public/photo/'.$data5['photo'];
 
@@ -134,8 +134,14 @@ class technican extends Controller
             'model'=>$request->model,
             'brand'=>$request->brand
         ]);
+            return $data;
 
-return $data;
+        }
+        else{
+
+            return error;
+        }
+
     }
 
 

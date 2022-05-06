@@ -139,7 +139,7 @@ class technican extends Controller
         }
         else{
 
-            return error;
+            return 'error';
         }
 
     }

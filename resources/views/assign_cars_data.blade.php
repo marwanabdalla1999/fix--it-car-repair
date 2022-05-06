@@ -3,7 +3,7 @@
 
     </head>
     <body >
-        <form method="get" action="{{ 'api/car_data' }}"
+        <form method="post" action="{{ 'api/car_data' }}"
               enctype="multipart/form-data">
             @csrf
             <label><h4>Type</h4></label>

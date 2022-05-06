@@ -18,12 +18,12 @@
             <br>
             <label><h4>model</h4></label>
             <input type="text" class="form-control" name='model' required />
-            <input type="file" class="form-control" name='photo' required />
+            <input type="file" class="form-control" name='photo1' required />
             <br>
             <br>
             <br>
             <label><h4>Add image</h4></label>
-            
+
             <br>
             <br>
             <br>

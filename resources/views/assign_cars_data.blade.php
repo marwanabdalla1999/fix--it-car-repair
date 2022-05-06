@@ -18,6 +18,7 @@
             <br>
             <label><h4>model</h4></label>
             <input type="text" class="form-control" name='model' required />
+            <input type="file" class="form-control" name='photo' required />
             <br>
             <br>
             <br>

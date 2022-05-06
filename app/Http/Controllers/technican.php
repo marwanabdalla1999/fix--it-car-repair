@@ -113,7 +113,10 @@ class technican extends Controller
 
     function cardata(Request $request){
         $data5=new brand_type();
-        $test=brand_type::where('type',$request->type)->first();
+
+        $test=brand_type::where([
+            ['type','=', $request->type],
+            ['brand', '=', $request->brand]])->first();
         if ($test){
             $data1 = brand_type_model::Create([
                 'type' => $request->type,

@@ -113,46 +113,49 @@ class technican extends Controller
 
     function cardata(Request $request){
         $data5=new brand_type();
-        $test=brand_type::where('type',$request->type);
-        if (!$test){
-        if($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('public/photo'), $filename);
-            $data5['photo'] = $filename;
-
-
-            $path = 'https://fix--it-car-repair.herokuapp.com/public/photo/' . $data5['photo'];
-
-            $data = brand_type::Create([
-                'type' => $request->type,
-                'brand' => $request->brand,
-                'photo' => $path
-
-            ]);
+        $test=brand_type::where('type',$request->type)->first();
+        if ($test){
             $data1 = brand_type_model::Create([
                 'type' => $request->type,
                 'model' => $request->model,
                 'brand' => $request->brand
             ]);
-            return $data;
-        } else{
 
-            return 'error';
-        }}
-        else{
-
-            $data1 = brand_type_model::Create([
-                'type' => $request->type,
-                'model' => $request->model,
-                'brand' => $request->brand
-            ]);
             return $data1;
+     }
+        else {
+            if ($request->hasFile('photo1')) {
+                $file = $request->file('photo1');
+                $filename = date('YmdHi') . $file->getClientOriginalName();
+                $file->move(public_path('public/photo'), $filename);
+                $data5['photo'] = $filename;
+
+
+                $path = 'https://fix--it-car-repair.herokuapp.com/public/photo/' . $data5['photo'];
+
+                $data = brand_type::Create([
+                    'type' => $request->type,
+                    'brand' => $request->brand,
+                    'photo' => $path
+
+                ]);
+                $data1 = brand_type_model::Create([
+                    'type' => $request->type,
+                    'model' => $request->model,
+                    'brand' => $request->brand
+                ]);
+                return $data;
+
+            } else {
+
+                return 'error';
+            }
+
+
         }
 
-
-
     }
+
 
 
 }

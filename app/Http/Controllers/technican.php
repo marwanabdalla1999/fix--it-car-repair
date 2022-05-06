@@ -134,7 +134,7 @@ class technican extends Controller
             'brand'=>$request->brand
         ]);
 
-return $data.$data1;
+return $data;
     }
 
 

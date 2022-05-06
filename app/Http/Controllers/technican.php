@@ -114,7 +114,7 @@ class technican extends Controller
     function cardata(Request $request){
         $data5=new brand_type();
         $test=brand_type::where('type',$request->type);
-        if ($test==null){
+        if (!$test){
         if($request->hasFile('photo1')) {
             $file = $request->file('photo1');
             $filename = date('YmdHi') . $file->getClientOriginalName();
@@ -136,7 +136,10 @@ class technican extends Controller
                 'brand' => $request->brand
             ]);
             return $data;
-        }
+        } else{
+
+            return 'error';
+        }}
         else{
 
             $data1 = brand_type_model::Create([
@@ -144,12 +147,10 @@ class technican extends Controller
                 'model' => $request->model,
                 'brand' => $request->brand
             ]);
+            return $data1;
         }
-        }
-        else{
 
-            return 'error';
-        }
+
 
     }
 

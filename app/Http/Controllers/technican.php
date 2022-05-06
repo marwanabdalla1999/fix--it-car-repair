@@ -112,7 +112,7 @@ class technican extends Controller
     }
 
     function cardata(Request $request){
-
+        $data5=new brand_type();
         if($request->hasFile('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();

@@ -42,6 +42,8 @@ Route::post('/provider_login',[\App\Http\Controllers\technican::class,'provider_
 
 Route::post('/session_provider',[\App\Http\Controllers\technican::class,'session']);
 
+Route::get('/car_data',[\App\Http\Controllers\technican::class,'cardata']);
+
 
 Route::post('/getrequests',[\App\Http\Controllers\Order::class,'getrequests']);
 

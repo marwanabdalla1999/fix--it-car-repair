@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\brand_type;
+use App\brand_type_model;
 use App\provider_data;
 use App\provider_login;
 use App\requests;
@@ -107,6 +109,32 @@ class technican extends Controller
 
 
 
+    }
+
+    function cardata(Request $request){
+
+        if($request->hasFile('photo')){
+            $file= $request->file('photo');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/photo/car_brands'), $filename);
+            $data5['photo']= $filename;
+
+        }
+        $path='https://fix--it-car-repair.herokuapp.com/public/photo/car_brands'.$data5['photo'];
+
+        $data=brand_type::Create([
+            'type'=>$request->type,
+                'brand'=>$request->brand,
+            'photo'=>$path
+
+        ]);
+        $data1=brand_type_model::Create([
+            'type'=>$request->type,
+            'model'=>$request->model,
+            'brand'=>$request->brand
+        ]);
+
+return $data.$data1;
     }
 
 

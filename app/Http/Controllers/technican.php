@@ -11,19 +11,31 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Utils;
+use Google\Cloud\Firestore\FirestoreClient;
 
 class technican extends Controller
 {
     function add_new_provider(Request $request){
    $data2=new provider_data();
-
-        if($request->hasFile('photo')){
+        $image = $request->file('image'); //image file from frontend
+        $firebase_storage_path = 'provider_photo/';
+        $name     = $request->phone;
+        $localfolder = public_path('firebase-temp-uploads') .'/';
+        $extension = $image->getClientOriginalExtension();
+        $file      = $name. '.' . $extension;
+        if ($image->move($localfolder, $file)) {
+            $uploadedfile = fopen($localfolder.$file, 'r');
+            app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => $firebase_storage_path . $name]);
+            //will remove from local laravel folder
+            unlink($localfolder . $file);
+        }
+    /*    if($request->hasFile('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('/temp/photos'), $filename);
             $data2['photo']= $filename;
 
-        }
+        }*/
         $data1 = provider_login::Create([
 
             'password' => $request->password,
@@ -37,7 +49,7 @@ class technican extends Controller
             'phone' => $request->phone,
             'provider_id' => $data1->id,
             'specialized_in' =>$request->specialized,
-            'photo' => $this->image($data2['photo'])
+          //  'photo' => $this->image($data2['photo'])
 
         ]);
 

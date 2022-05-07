@@ -51,6 +51,7 @@ Route::post('/send_offer',[\App\Http\Controllers\Order::class,'send_offer']);
 
 Route::post('/cancel_order',[\App\Http\Controllers\Order::class,'cancel_order']);
 
+Route::get('/get_cars_data',[\App\Http\Controllers\Order::class,'getcar_data']);
 
 
 //Route::any('sendverficationcode/{phonenumber}','App\Http\Controllers\customer1@sendverficationcode');

@@ -24,7 +24,6 @@ class technican extends Controller
             $data2['photo']= $filename;
 
         }
-      //  $data2->save();
         $data1 = provider_login::Create([
 
             'password' => $request->password,

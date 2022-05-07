@@ -20,7 +20,7 @@ class technican extends Controller
         if($request->hasFile('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('public/storage'), $filename);
+            $file-> move(public_path('/temp/photos'), $filename);
             $data2['photo']= $filename;
 
         }
@@ -61,7 +61,7 @@ class technican extends Controller
 
     public function image($fileName){
 
-        $path = 'https://fix--it-car-repair.herokuapp.com/public/storage/'.$fileName;
+        $path = 'https://fix--it-car-repair.herokuapp.com/temp/photos/'.$fileName;
         return $path;
 
     }

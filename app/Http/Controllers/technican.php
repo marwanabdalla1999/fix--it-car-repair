@@ -17,7 +17,7 @@ class technican extends Controller
 {
     function add_new_provider(Request $request){
    $data2=new provider_data();
-        $image = $request->file('image'); //image file from frontend
+        $image = $request->file('photo'); //image file from frontend
         $firebase_storage_path = 'provider_photo/';
         $name     = $request->phone;
         $localfolder = public_path('firebase-temp-uploads') .'/';

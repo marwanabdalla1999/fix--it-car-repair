@@ -60,8 +60,10 @@ class technican extends Controller
     }
 
     public function image($fileName){
+
         $path = 'https://fix--it-car-repair.herokuapp.com/public/storage/'.$fileName;
         return $path;
+
     }
 
     function provider_login(Request $request){

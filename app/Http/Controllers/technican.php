@@ -11,7 +11,6 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Utils;
-use Google\Cloud\Firestore\FirestoreClient;
 
 class technican extends Controller
 {

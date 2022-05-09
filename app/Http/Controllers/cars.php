@@ -88,11 +88,11 @@ class cars extends Controller
 
     function getcar_data(){
         $types=brand_type::Select('type')->groupBy('type')->get();
-        $finalreturn=[];
+        $finalreturn=array();
         foreach ($types as $type ){
             $brands=brand_type::Select('brand')->where('type',$type->type)->get();
-            $finalreturn=$finalreturn->push(['type'=>$type->type,
-                'models'=>$brands]);
+            $finalreturn[]=['type'=>$type->type,
+                'models'=>$brands];
         }
 return $finalreturn;
     }

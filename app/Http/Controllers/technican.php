@@ -11,7 +11,7 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Utils;
-
+use Google\Cloud\Storage;
 class technican extends Controller
 {
     function add_new_provider(Request $request){

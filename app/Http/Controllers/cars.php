@@ -94,7 +94,7 @@ class cars extends Controller
             $finalreturn=['type'=>$type,
                 'models'=>$models];
         }
-return $finalreturn;
+return $types;
     }
 
 

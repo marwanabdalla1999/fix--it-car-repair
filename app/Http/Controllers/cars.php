@@ -91,7 +91,7 @@ class cars extends Controller
         $finalreturn=[];
         foreach ($types as $type ){
             $brands=brand_type::Select('brand')->where('type',$type->type)->get();
-            $finalreturn=$finalreturn.['type'=>$type->type,
+            $finalreturn=['type'=>$type->type,
                 'models'=>$brands];
         }
 return $finalreturn;

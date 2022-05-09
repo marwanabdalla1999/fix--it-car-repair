@@ -90,8 +90,8 @@ class cars extends Controller
         $types=brand_type::Select('type')->groupBy('type')->get();
         $finalreturn=[];
         foreach ($types as $type ){
-            $models=brand_type::where('type',$type)->get();
-            $finalreturn=$models;
+            $finalreturn=array_merge($finalreturn,brand_type::where('type',$type)->get()->toArray());
+         //   $finalreturn=$models;
         }
 return $finalreturn;
     }

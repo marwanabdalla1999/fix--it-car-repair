@@ -93,7 +93,7 @@ class cars extends Controller
             $finalreturn=array_merge($finalreturn,brand_type::where('type',$type)->get()->toArray());
          //   $finalreturn=$models;
         }
-return brand_type::where('type',$types[0])->get();
+return brand_type::where('type',$types[0]->type)->get();
     }
 
 

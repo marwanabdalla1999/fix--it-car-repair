@@ -89,15 +89,17 @@ class cars extends Controller
     function getcar_data(){
         $types=brand_type::Select('type')->groupBy('type')->get();
         $finalreturn=array();
+        $brands_models=array();
         foreach ($types as $type ){
             $brands=brand_type::Select('brand')->where('type',$type->type)->get();
             foreach ($brands as $brand){
                 $models=brand_type_model::Select('model')->where('brand',$brand->brand)->get();
 
-                $finalreturn[]=['type'=>$type->type,
-                    'brands'=>$brand,'models'=>$models];
+              $brands_models[]=['brand'=>$brand->brand,
+                'models'=>$models];
             }
-
+            $finalreturn[]=['type'=>$type->type,
+                'brands'=>$brands_models];
 
         }
 return $finalreturn;

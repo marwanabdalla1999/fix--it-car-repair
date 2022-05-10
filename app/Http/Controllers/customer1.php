@@ -66,7 +66,7 @@ class customer1 extends Controller
     }
 
 
- private function  send_otp(Request $request,$otp){
+  function  send_otp(Request $request,$otp){
 
   //  $sid = "AC8c9c14a5e759d4f2c334c5db8e47f100"; // Your Account SID from www.twilio.com/console
    // $token = "185eb72ee597fc68f0c92f427afc9d32"; // Your Auth Token from www.twilio.com/console

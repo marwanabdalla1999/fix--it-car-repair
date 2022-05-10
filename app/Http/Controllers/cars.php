@@ -100,7 +100,7 @@ class cars extends Controller
                 'models'=>$models];
             }
             $finalreturn[]=['type'=>$type->type,
-                'brands'=>$brands_models];
+                'brands'=>$brands];
 
         }
 return $finalreturn;

@@ -6,7 +6,6 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use App\customer;
 use Illuminate\Support\Facades\Validator;
-use Nexmo\Laravel\Facade\Nexmo;
 use Twilio\Rest\Client;
 use Illuminate\Support\Str;
 
@@ -66,26 +65,19 @@ class customer1 extends Controller
     }
 
 
-  function  send_otp(){
+ private function  send_otp(Request $request,$otp){
 
-  //  $sid = "AC8c9c14a5e759d4f2c334c5db8e47f100"; // Your Account SID from www.twilio.com/console
-   // $token = "185eb72ee597fc68f0c92f427afc9d32"; // Your Auth Token from www.twilio.com/console
+    $sid = "AC8c9c14a5e759d4f2c334c5db8e47f100"; // Your Account SID from www.twilio.com/console
+    $token = "185eb72ee597fc68f0c92f427afc9d32"; // Your Auth Token from www.twilio.com/console
 
-     Nexmo::message()->send([
-         'to'=>'201211509014',
-         'from'=>'01215651126',
-         'text'=>'this otp massage'
-
-     ]);
-
-   // $client = new Client($sid, $token);
-   /* $message = $client->messages->create(
+    $client = new Client($sid, $token);
+    $message = $client->messages->create(
         '+'.$request->phone, // Text this number
         [
             'from' => '+12762849947', // From a valid Twilio number
             'body' => 'Hello your otp code is '.$otp.' !'
         ]
-    );*/
+    );
 
 
 

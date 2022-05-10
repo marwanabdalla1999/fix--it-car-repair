@@ -53,5 +53,4 @@ Route::post('/cancel_order',[\App\Http\Controllers\Order::class,'cancel_order'])
 
 Route::get('/get_cars_data',[\App\Http\Controllers\cars::class,'getcar_data']);
 
-Route::post('/send_otp',[\App\Http\Controllers\customer1::class,'send_otp']);
 

@@ -53,4 +53,7 @@ Route::post('/cancel_order',[\App\Http\Controllers\Order::class,'cancel_order'])
 
 Route::get('/get_cars_data',[\App\Http\Controllers\cars::class,'getcar_data']);
 
+Route::post('/add_user_car',[\App\Http\Controllers\cars::class,'addusercar']);
+
+
 

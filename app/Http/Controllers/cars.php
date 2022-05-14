@@ -124,7 +124,7 @@ if ($this->session($request)=='login'){
 
 
     ]);
-    
+
     return $data;
 
 }
@@ -132,6 +132,25 @@ if ($this->session($request)=='login'){
 else if($this->session($request)=='logout'){
     return 'logout';
 }
+
+
+}
+
+
+function getusercars(Request $request){
+    if ($this->session($request)=='login'){
+
+        $data=add_user_car::where('user_id',$request->id)->get();
+
+
+
+        return$data;
+
+    }
+
+    else if($this->session($request)=='logout'){
+        return 'logout';
+    }
 
 
 }

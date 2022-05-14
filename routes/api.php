@@ -55,5 +55,7 @@ Route::get('/get_cars_data',[\App\Http\Controllers\cars::class,'getcar_data']);
 
 Route::post('/add_user_car',[\App\Http\Controllers\cars::class,'addusercar']);
 
+Route::post('/get_user_data',[\App\Http\Controllers\cars::class,'getusercars']);
+
 
 

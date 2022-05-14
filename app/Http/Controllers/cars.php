@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\add_user_car;
 use App\brand_type;
 use App\brand_type_model;
+use App\customer;
 use App\provider_data;
 use App\provider_login;
 use App\requests;
@@ -16,7 +18,7 @@ class cars extends Controller
 {
 
     function session(Request $request){
-        $user_id = provider_login::where('id', $request->id)->first();
+        $user_id = customer::where('id', $request->id)->first();
         if ($user_id){
             if ($user_id->token==$request->token){
 
@@ -108,5 +110,29 @@ return $finalreturn;
     }
 
 
+function addusercar(Request $request){
 
+if ($this->session($request)=='login'){
+
+    $data=add_user_car::create([
+       'user_id'=>$request->id,
+        'type'=>$request->type,
+        'brand'=>$request->brand,
+        'model'=>$request->model,
+        'year'=>$request->year,
+        'color'=>$request->color,
+
+
+    ]);
+    
+    return $data;
+
+}
+
+else if($this->session($request)=='logout'){
+    return 'logout';
+}
+
+
+}
 }

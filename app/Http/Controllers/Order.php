@@ -282,15 +282,15 @@ class Order extends Controller
            ['state','=','in progress']])->first();
             if($user_order) {
                 $provider_data = provider_data::where('provider_id' ,$user_order->provider_id);
+                $offer = tech_offer::where('order_id' ,$user_order->order_id);
 
                 $data=response()->json([
                         'order_id' => $user_order->id,
                         'location_lat_lng' => $user_order->location_lat_lng,
-                        'address' => $user_order->address,
-                        'amount' => $provider_data->amount,
+                        'amount' => $offer->amount,
                         'name' => $provider_data->name,
-                        'time' => $provider_data->time,
-                        'distance' => $provider_data->distance
+                        'time' => $offer->time,
+                        'distance' => $offer->distance
 
                     ]
                 );

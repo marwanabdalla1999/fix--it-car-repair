@@ -287,7 +287,6 @@ class Order extends Controller
                 $data=response()->json([
                         'order_id' => $user_order->id,
                         'location_lat_lng' => $user_order->location_lat_lng,
-                        'amount' => $offer->amount,
                         'name' => $provider_data->name,
                         'time' => $offer->time,
                         'distance' => $offer->distance

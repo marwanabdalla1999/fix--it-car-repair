@@ -57,5 +57,8 @@ Route::post('/add_user_car',[\App\Http\Controllers\cars::class,'addusercar']);
 
 Route::post('/get_user_data',[\App\Http\Controllers\cars::class,'getusercars']);
 
+Route::post('/update_order_data',[\App\Http\Controllers\Order::class,'update_order_data']);
+
+Route::post('/getOrder_data',[\App\Http\Controllers\Order::class,'getOrder_data']);
 
 

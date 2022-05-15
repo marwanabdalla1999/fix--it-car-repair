@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\customer;
+use App\provider_data;
 use App\provider_login;
 use App\requests;
 use App\tech_offer;
@@ -244,6 +245,69 @@ class Order extends Controller
             }
 
         return $return_array;
+
+
+    }
+
+    function update_order_data(Request $request){
+        $response= $this->session($request);
+        if ($response=='login'){
+            $order = order_model::where('id', $request->order_id)->first();
+
+            if($order) {
+                $order->state = $request->state;
+                $order->tech_id=$request->tech_id;
+                $order->save();
+                return "order assigned";
+
+            }
+            else{
+                return "order not found";
+
+            }
+
+        }
+        else{
+            return 'logout';
+        }
+
+
+
+    }
+
+    function getOrder_data(Request $request){
+        $response= $this->session($request);
+        if ($response=='login'){
+            $user_order = order_model::where(['user_id','=' ,$request->id,
+           'state','=','in progress'])->first();
+            if($user_order) {
+                $provider_data = provider_data::where('provider_id' ,$user_order->provider_id);
+
+                $data=response()->json([
+                        'order_id' => $user_order->id,
+                        'location_lat_lng' => $user_order->location_lat_lng,
+                        'address' => $user_order->address,
+                        'amount' => $provider_data->amount,
+                        'name' => $provider_data->name,
+                        'time' => $provider_data->time,
+                        'distance' => $provider_data->distance
+
+                    ]
+                );
+
+                return $data;
+
+            }
+            else{
+                return "order not found";
+
+            }
+
+        }
+        else{
+            return 'logout';
+        }
+
 
 
     }

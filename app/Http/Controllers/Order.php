@@ -278,8 +278,8 @@ class Order extends Controller
     function getOrder_data(Request $request){
         $response= $this->session($request);
         if ($response=='login'){
-            $user_order = order_model::where(['user_id','=' ,$request->user_id,
-           'state','=','in progress'])->first();
+            $user_order = order_model::where([['user_id','=' ,$request->user_id],
+           ['state','=','in progress']])->first();
             if($user_order) {
                 $provider_data = provider_data::where('provider_id' ,$user_order->provider_id);
 

@@ -96,6 +96,10 @@ class technican extends Controller
 
 
         }
+        else{
+
+            return 'invalid username or password';
+        }
 
     }
     function session(Request $request){

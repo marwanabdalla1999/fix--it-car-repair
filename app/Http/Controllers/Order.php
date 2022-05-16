@@ -281,29 +281,30 @@ class Order extends Controller
 
     function getOrder_data(Request $request){
         $response= $this->session($request);
-        if ($response=='login'){
-            $user_order = order_model::where([['user_id','=' ,$request->user_id],
-           ['state','=','in progress']])->first();
-            if($user_order) {
-                $provider_data = provider_data::where('provider_id' ,$user_order->tech_id);
+        if ($response=='login') {
+            $user_order = order_model::where([['user_id', '=', $request->user_id],
+                ['state', '=', 'in progress']])->first();
+            if ($user_order) {
+                $provider_data = provider_data::where('provider_id', $user_order->tech_id);
+                if ($provider_data) {
+                    $data = response()->json([
+                            'order_id' => $user_order->id,
+                            'location_lat_lng' => $user_order->location_lat_lng,
+                            'amount' => $user_order->amount,
+                            'time' => $user_order->time,
+                            'distance' => $user_order->distance,
+                            'name' => $provider_data->name,
+                            'phone' => $provider_data->phone,
+                            'rate' => $provider_data->rate,
+                        ]
+                    );
 
-                $data=response()->json([
-                        'order_id' => $user_order->id,
-                        'location_lat_lng' => $user_order->location_lat_lng,
-                        'amount' => $user_order->amount,
-                        'time' => $user_order->time,
-                        'distance' => $user_order->distance,
-                        'name' => $provider_data->name,
-                        'phone' => $provider_data->phone,
-                        'rate' => $provider_data->rate,
+                    return $data;
+                } else {
 
-                    ]
-                );
-
-                return $data;
-
-            }
-            else{
+                    return 'provider_not_found';
+                }
+            } else {
                 return "order not found";
 
             }

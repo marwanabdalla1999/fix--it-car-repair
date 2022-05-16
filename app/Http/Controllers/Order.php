@@ -11,7 +11,13 @@ use Illuminate\Http\Request;
 use App\order_model;
 
 class Order extends Controller
-{function session(Request $request){
+
+
+{
+
+
+    function session(Request $request){
+
     $user_id = customer::where('id', $request->user_id)->first();
     if ($user_id){
         if ($user_id->token==$request->token){
@@ -28,11 +34,8 @@ class Order extends Controller
 
         return 'logout';
     }
-
-
-
-
 }
+
     function create(Request $request){
       $response= $this->session($request);
        if ($response=='login'){
@@ -298,6 +301,7 @@ class Order extends Controller
                            'name' => $provider_data->name,
                             'phone' => $provider_data->phone,
                             'rate' => $provider_data->rate,
+
                         ]
                     );
 

@@ -257,6 +257,10 @@ class Order extends Controller
             if($order) {
                 $order->state = $request->state;
                 $order->tech_id=$request->tech_id;
+                $order->amount=$request->amount;
+                $order->distance=$request->distance;
+                $order->time=$request->time;
+
                 $order->save();
                 return "order assigned";
 
@@ -282,15 +286,16 @@ class Order extends Controller
            ['state','=','in progress']])->first();
             if($user_order) {
                 $provider_data = provider_data::where('provider_id' ,$user_order->provider_id);
-                $offer = tech_offer::where('order_id' ,$user_order->order_id);
 
                 $data=response()->json([
                         'order_id' => $user_order->id,
                         'location_lat_lng' => $user_order->location_lat_lng,
-                        'amount' => $offer->amount,
+                        'amount' => $user_order->amount,
+                        'time' => $user_order->time,
+                        'distance' => $user_order->distance,
                         'name' => $provider_data->name,
-                        'time' => $offer->time,
-                        'distance' => $offer->distance
+                        'phone' => $provider_data->phone,
+                        'rate' => $provider_data->rate,
 
                     ]
                 );

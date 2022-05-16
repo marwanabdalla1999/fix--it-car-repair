@@ -142,6 +142,7 @@ class Order extends Controller
 
     }
     function send_offer(Request $request){
+
         $response= $this->session_provider($request);
         if ($response=='login'){
             $data = tech_offer::Create([
@@ -152,6 +153,7 @@ class Order extends Controller
                 'order_id' =>$request->order_id,
                 'technican_id' =>$request->id,
                 'distance' =>$request->distance,
+                'technican_location' =>$request->technican_location
 
 
             ]);
@@ -161,8 +163,6 @@ class Order extends Controller
         else{
             return 'logout';
         }
-
-
 
     }
 
@@ -260,6 +260,7 @@ class Order extends Controller
                 $order->amount=$request->amount;
                 $order->distance=$request->distance;
                 $order->time=$request->time;
+                $order->tech_location=$request->technican_location;
 
                 $order->save();
                 return "order assigned";
@@ -293,13 +294,15 @@ class Order extends Controller
                             'amount' => $user_order->amount,
                             'time' => $user_order->time,
                             'distance' => $user_order->distance,
-                            'name' => $provider_data->name,
+                           'technican_location' => $user_order->tech_location,
+                           'name' => $provider_data->name,
                             'phone' => $provider_data->phone,
                             'rate' => $provider_data->rate,
                         ]
                     );
 
                     return $data;
+
                 } else {
 
                     return 'provider_not_found';

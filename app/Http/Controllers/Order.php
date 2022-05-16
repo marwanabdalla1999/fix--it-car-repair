@@ -285,9 +285,9 @@ class Order extends Controller
             $user_order = order_model::where([['user_id', '=', $request->user_id],
                 ['state', '=', 'in progress']])->first();
             if ($user_order) {
-                $provider_data = provider_data::where('provider_id', $user_order->tech_id);
+                $provider_data = provider_data::where('provider_id', $user_order->tech_id)->first();
                 if ($provider_data) {
-                  /*  $data = response()->json([
+                   $data = response()->json([
                             'order_id' => $user_order->id,
                             'location_lat_lng' => $user_order->location_lat_lng,
                             'amount' => $user_order->amount,
@@ -297,9 +297,9 @@ class Order extends Controller
                             'phone' => $provider_data->phone,
                             'rate' => $provider_data->rate,
                         ]
-                    );*/
+                    );
 
-                    return $provider_data;
+                    return $data;
                 } else {
 
                     return 'provider_not_found';

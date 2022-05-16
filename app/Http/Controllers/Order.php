@@ -293,7 +293,7 @@ class Order extends Controller
                             'amount' => $user_order->amount,
                             'time' => $user_order->time,
                             'distance' => $user_order->distance,
-                            'name' => $provider_data->name,
+                            'name' => $provider_data['name'],
                             'phone' => $provider_data->phone,
                             'rate' => $provider_data->rate,
                         ]

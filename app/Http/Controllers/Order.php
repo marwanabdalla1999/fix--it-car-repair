@@ -287,7 +287,7 @@ class Order extends Controller
             if ($user_order) {
                 $provider_data = provider_data::where('provider_id', $user_order->tech_id);
                 if ($provider_data) {
-                    $data = response()->json([
+                  /*  $data = response()->json([
                             'order_id' => $user_order->id,
                             'location_lat_lng' => $user_order->location_lat_lng,
                             'amount' => $user_order->amount,
@@ -297,9 +297,9 @@ class Order extends Controller
                             'phone' => $provider_data->phone,
                             'rate' => $provider_data->rate,
                         ]
-                    );
+                    );*/
 
-                    return $data;
+                    return $provider_data;
                 } else {
 
                     return 'provider_not_found';

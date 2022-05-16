@@ -119,7 +119,7 @@ function session(Request $request){
     $user_id = customer::where('id', $request->id)->first();
     if ($user_id){
         if ($user_id->token==$request->token){
-            $hasOrder =order_model::where([['user_id', '=', $request->user_id],
+            $hasOrder =order_model::where([['user_id', '=', $request->id],
                 ['state', '=', 'in progress']])->first();
             if ($hasOrder){
                   return 'login/request_order';

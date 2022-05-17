@@ -200,7 +200,7 @@ class Order extends Controller
 
     function cancel_order(Request $request){
         $response= $this->session($request);
-        if ($response=='loginn'){
+        if ($response=='login'){
 
            $order= order_model::where('id',$request->order_id)->first();
             if ($order!= null){
@@ -365,6 +365,31 @@ class Order extends Controller
         }
 
 
+
+    }
+
+    function cancel_order_tech(Request $request){
+        $response= $this->session_provider($request);
+        if ($response=='login'){
+
+            $order= order_model::where('id',$request->order_id)->first();
+            if ($order!= null){
+                $order->state = 'cancelled';
+
+                $order->save();
+
+                return 'cancelled';
+            }
+
+            else{
+
+                return 'order not found';
+            }
+        }
+        else{
+            return 'logout';
+
+        }
 
     }
 }

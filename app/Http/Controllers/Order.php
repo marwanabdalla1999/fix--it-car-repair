@@ -170,17 +170,13 @@ class Order extends Controller
     }
 
     function session_provider(Request $request){
-        $tech_id = provider_login::where('id', $request->id)->first();
+        $tech_id = provider_login::where([['id','=', $request->id],
+        ['token','=',$request->token]])->first();
         if ($tech_id){
-            if ($tech_id->token==$request->token){
 
 
                 return 'login';
-            }
-            else{
-                return 'logout';
-
-            }
+            
         }
         else{
 
@@ -371,7 +367,6 @@ class Order extends Controller
     function cancel_order_tech(Request $request){
         $response= $this->session_provider($request);
         if ($response=='login'){
-
             $order= order_model::where('id',$request->order_id)->first();
             if ($order!= null){
                 $order->state = 'cancelled';
@@ -387,6 +382,7 @@ class Order extends Controller
             }
         }
         else{
+
             return 'logout';
 
         }

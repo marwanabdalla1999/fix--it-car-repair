@@ -324,4 +324,47 @@ class Order extends Controller
 
 
     }
+
+    function getOrder_data_tech(Request $request){
+        $response= $this->session_provider($request);
+        if ($response=='login') {
+            $tech_order = order_model::where([['tech_id', '=', $request->id],
+                ['state', '=', 'in progress']])->first();
+            if ($tech_order) {
+                $user_data = customer1::where('id', $tech_order->user_id)->first();
+                if ($user_data) {
+                    $data = response()->json([
+                            'order_id' => $tech_order->id,
+                            'location_lat_lng' => $tech_order->location_lat_lng,
+                            'amount' => $tech_order->amount,
+                            'name' => $user_data->name,
+                            'phone' => $user_data->phone,
+                            'payment_way' => $tech_order->payment_way,
+                            'address' => $tech_order->address,
+                            'issue' => $tech_order->issue
+
+
+
+                        ]
+                    );
+
+                    return $data;
+
+                } else {
+
+                    return 'provider_not_found';
+                }
+            } else {
+                return "order not found";
+
+            }
+
+        }
+        else{
+            return 'logout';
+        }
+
+
+
+    }
 }

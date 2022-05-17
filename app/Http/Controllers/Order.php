@@ -331,7 +331,7 @@ class Order extends Controller
             $tech_order = order_model::where([['tech_id', '=', $request->id],
                 ['state', '=', 'in progress']])->first();
             if ($tech_order) {
-                $user_data = customer1::where('id', $tech_order->user_id)->first();
+                $user_data = customer::where('id', $tech_order->user_id)->first();
                 if ($user_data) {
                     $data = response()->json([
                             'order_id' => $tech_order->id,

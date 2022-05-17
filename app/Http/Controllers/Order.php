@@ -176,7 +176,7 @@ class Order extends Controller
 
 
                 return 'login';
-            
+
         }
         else{
 
@@ -365,8 +365,8 @@ class Order extends Controller
     }
 
     function cancel_order_tech(Request $request){
-        $response= $this->session_provider($request);
-        if ($response=='login'){
+     //   $response= $this->session_provider($request);
+       // if ($response=='login'){
             $order= order_model::where('id',$request->order_id)->first();
             if ($order!= null){
                 $order->state = 'cancelled';
@@ -381,11 +381,11 @@ class Order extends Controller
                 return 'order not found';
             }
         }
-        else{
+     //   else{
 
-            return 'logout';
+      //      return 'logout';
 
-        }
+     //   }
 
-    }
+ //   }
 }

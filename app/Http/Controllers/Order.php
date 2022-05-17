@@ -200,7 +200,7 @@ class Order extends Controller
 
     function cancel_order(Request $request){
         $response= $this->session($request);
-        if ($response=='login'){
+        if ($response=='loginn'){
 
            $order= order_model::where('id',$request->order_id)->first();
             if ($order!= null){

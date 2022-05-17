@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\brand_type;
 use App\brand_type_model;
+use App\order_model;
 use App\provider_data;
 use App\provider_login;
 use App\requests;
@@ -106,9 +107,14 @@ class technican extends Controller
         $user_id = provider_login::where('id', $request->id)->first();
         if ($user_id){
             if ($user_id->token==$request->token){
+                $hasOrder =order_model::where([['tech_id', '=', $request->id],
+                    ['state', '=', 'in progress']])->first();
+                if ($hasOrder){
 
-
-                return 'login';
+                    return 'login/provide_order';
+                }
+else{
+                return 'login';}
             }
             else{
                 return 'logout';

@@ -339,6 +339,7 @@ if ($car_data) {
     $data = response()->json([
         'order_id' => $tech_order->id,
         'location_lat_lng' => $tech_order->location_lat_lng,
+        'tech_location' => $tech_order->tech_location,
         'amount' => $tech_order->amount,
         'name' => $user_data->name,
         'phone' => $user_data->phone,
@@ -347,10 +348,7 @@ if ($car_data) {
         'issue' => $tech_order->issue,
         'carname' => $car_data->brand." ".$car_data->model
 
-
-
-                        ]
-                    );
+    ]);
 
                     return $data;
 }

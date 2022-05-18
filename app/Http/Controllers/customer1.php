@@ -120,7 +120,8 @@ function session(Request $request){
     if ($user_id){
         if ($user_id->token==$request->token){
             $hasOrder =order_model::where([['user_id', '=', $request->id],
-                ['state', '=', 'in progress']])->first();
+                ['state', '=', 'in progress']])->orWhere([['user_id', '=', $request->id],
+                ['state', '=', 'wait_for_paying']])->first();
             if ($hasOrder){
                   return 'login/request_order';
 

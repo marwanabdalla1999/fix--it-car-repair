@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\add_user_car;
 use App\customer;
 use App\provider_data;
 use App\provider_login;
@@ -128,8 +129,10 @@ class Order extends Controller
                 $finalrequests = $this->diff($requests, $removed_requests);
 
         if ($finalrequests!=null){
-            $finalrequests['car_id']="80";
-
+            foreach ($finalrequests as $finalrequest) {
+                $car_name = add_user_car::where("id", $finalrequest['car_id']);
+                $finalrequest['car_id']=$car_name->brand;
+            }
             return $finalrequests;
         }
 

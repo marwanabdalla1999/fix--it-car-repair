@@ -131,8 +131,8 @@ class Order extends Controller
 
         if ($finalrequests!=null){
             foreach ($finalrequests as $finalrequest) {
-                $car_name = add_user_car::where("id", $finalrequest['car_id']);
-                $finalrequest['car_id']=$car_name;
+                $car_name = add_user_car::where("id", $finalrequest['car_id'])->first();
+                $finalrequest['car_id']=$car_name->brand;
                 $finalrequests1[]=$finalrequest;
             }
             return $finalrequests1;

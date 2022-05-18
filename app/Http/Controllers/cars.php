@@ -93,7 +93,7 @@ class cars extends Controller
         if ($request->version==$current_version){
 
             return response()->json([
-                'Version' => 'already_downloaded' ]);
+                'version' => 'already_downloaded' ]);
         }
         else
         {

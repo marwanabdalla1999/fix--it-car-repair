@@ -108,7 +108,8 @@ class technican extends Controller
         if ($user_id){
             if ($user_id->token==$request->token){
                 $hasOrder =order_model::where([['tech_id', '=', $request->id],
-                    ['state', '=', 'in progress']])->first();
+                    ['state', '=', 'in progress']])->orWhere([['tech_id', '=', $request->id],
+                    ['state', '=', 'wait_for_paying']])->first();
                 if ($hasOrder){
 
                     return 'login/provide_order';

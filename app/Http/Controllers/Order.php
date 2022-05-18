@@ -346,7 +346,8 @@ if ($car_data) {
         'payment_way' => $tech_order->payment_way,
         'address' => $tech_order->address,
         'issue' => $tech_order->issue,
-        'carname' => $car_data->brand." ".$car_data->model
+        'carname' => $car_data->brand." ".$car_data->model,
+        'state'=>$tech_order->state
 
     ]);
 
@@ -397,6 +398,33 @@ if ($car_data) {
             return 'logout';
 
         }
+
+    }
+
+    function update_price(Request $request){
+        $response= $this->session_provider($request);
+        if ($response=='login'){
+            $order = order_model::where('id', $request->order_id)->first();
+
+            if($order) {
+                $order->state = $request->state;
+                $order->amount=$request->amount;
+
+                $order->save();
+                return "order assigned";
+
+            }
+            else{
+                return "order not found";
+
+            }
+
+        }
+        else{
+            return 'logout';
+        }
+
+
 
     }
 }

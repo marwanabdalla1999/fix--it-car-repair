@@ -63,9 +63,8 @@ Route::post('/getOrder_data',[\App\Http\Controllers\Order::class,'getOrder_data'
 
 Route::post('/getOrder_data_tech',[\App\Http\Controllers\Order::class,'getOrder_data_tech']);
 
-
-
 Route::post('/cancel_order_tech',[\App\Http\Controllers\Order::class,'cancel_order_tech']);
 
+Route::post('/update_price',[\App\Http\Controllers\Order::class,'update_price']);
 
 

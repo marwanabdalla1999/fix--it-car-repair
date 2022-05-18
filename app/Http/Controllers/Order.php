@@ -427,4 +427,18 @@ if ($car_data) {
 
 
     }
+
+    function get_order_state(Request $request){
+        $order = order_model::where('id', $request->order_id)->first();
+        if($order) {
+
+            return $order->state;
+
+        }
+        else{
+            return "order not found";
+
+        }
+
+    }
 }

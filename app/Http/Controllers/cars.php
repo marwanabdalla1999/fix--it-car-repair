@@ -115,7 +115,7 @@ class cars extends Controller
 
         }
 return response()->json([
-        'Version' => $current_version,
+        'version' => $current_version,
         'data' => $finalreturn]);
         }
     }

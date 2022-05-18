@@ -88,7 +88,15 @@ class cars extends Controller
 
     }
 
-    function getcar_data(){
+    function getcar_data(Request $request){
+        $current_version='1.0';
+        if ($request->version==$current_version){
+
+            return response()->json([
+                'Version' => 'already_downloaded' ]);
+        }
+        else
+        {
         $types=brand_type::Select('type')->groupBy('type')->get();
         $finalreturn=array();
         $brands_models=array();
@@ -106,7 +114,10 @@ class cars extends Controller
             $brands_models=[];
 
         }
-return $finalreturn;
+return response()->json([
+        'Version' => $current_version,
+        'data' => $finalreturn]);
+        }
     }
 
 

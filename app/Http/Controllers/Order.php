@@ -108,6 +108,7 @@ class Order extends Controller
            $response= $this->session_provider($request);
         $requests=array();
         $finalrequests=[];
+        $finalrequests1=[];
         $removed_requests=array();
             if ($response=='login'){
                $data=$this->getDataAttribute($request);
@@ -131,9 +132,10 @@ class Order extends Controller
         if ($finalrequests!=null){
             foreach ($finalrequests as $finalrequest) {
                 $car_name = add_user_car::where("id", $finalrequest['car_id']);
-                $finalrequest['car_id']=$car_name;
+                $finalrequest['car_id']=$car_name['brand'];
+                $finalrequests1[]=$finalrequest;
             }
-            return $finalrequests;
+            return $finalrequests1;
         }
 
         else{

@@ -67,5 +67,5 @@ Route::post('/cancel_order_tech',[\App\Http\Controllers\Order::class,'cancel_ord
 
 Route::post('/update_price',[\App\Http\Controllers\Order::class,'update_price']);
 
-Route::get('/order_state',[\App\Http\Controllers\Order::class,'order_state']);
+Route::get('/order_state',[\App\Http\Controllers\Order::class,'get_order_state']);
 

@@ -334,15 +334,18 @@ class Order extends Controller
             if ($tech_order) {
                 $user_data = customer::where('id', $tech_order->user_id)->first();
                 if ($user_data) {
-                    $data = response()->json([
-                            'order_id' => $tech_order->id,
-                            'location_lat_lng' => $tech_order->location_lat_lng,
-                            'amount' => $tech_order->amount,
-                            'name' => $user_data->name,
-                            'phone' => $user_data->phone,
-                            'payment_way' => $tech_order->payment_way,
-                            'address' => $tech_order->address,
-                            'issue' => $tech_order->issue
+                    $car_data = add_user_car::where('id', $tech_order->car_id)->first();
+if ($car_data) {
+    $data = response()->json([
+        'order_id' => $tech_order->id,
+        'location_lat_lng' => $tech_order->location_lat_lng,
+        'amount' => $tech_order->amount,
+        'name' => $user_data->name,
+        'phone' => $user_data->phone,
+        'payment_way' => $tech_order->payment_way,
+        'address' => $tech_order->address,
+        'issue' => $tech_order->issue,
+        'carname' => $car_data->brand." ".$car_data->model
 
 
 
@@ -350,8 +353,13 @@ class Order extends Controller
                     );
 
                     return $data;
+}
+                else{
 
-                } else {
+                    return 'car not found';
+                }
+                }
+                 else {
 
                     return 'provider_not_found';
                 }

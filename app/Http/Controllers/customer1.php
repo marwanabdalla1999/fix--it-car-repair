@@ -237,7 +237,7 @@ function session(Request $request){
     }
     function getcard_data(Request $request){
 
-        $data = user_cards::where('id',$request->id)->first();
+        $data = user_cards::where('id',$request->card_id)->first();
         if ($data){
 
 

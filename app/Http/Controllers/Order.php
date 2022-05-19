@@ -47,7 +47,8 @@ class Order extends Controller
             'address' =>$request->address ,
             'issue' =>$request->issue,
             'payment_way' => $request->payment_way,
-           'state'=>'searching for technician'
+           'state'=>'searching for technician',
+            'card_used'=> $request->card_id
 
         ]);
 

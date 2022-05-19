@@ -72,3 +72,6 @@ Route::get('/order_state',[\App\Http\Controllers\Order::class,'get_order_state']
 Route::get('/get_user_cards',[\App\Http\Controllers\customer1::class,'get_user_cards']);
 
 Route::post('/add_card',[\App\Http\Controllers\customer1::class,'register_card']);
+
+
+Route::post('/getcard_data',[\App\Http\Controllers\customer1::class,'getcard_data']);

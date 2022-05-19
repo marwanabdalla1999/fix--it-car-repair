@@ -235,5 +235,21 @@ function session(Request $request){
 
 
     }
+    function getcard_data(Request $request){
 
+        $data = user_cards::where('id',$request->id)->first();
+        if ($data){
+
+
+
+            return $data;
+
+
+        }else{
+
+            return 'not found';
+        }
+
+
+    }
 }

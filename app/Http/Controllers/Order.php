@@ -304,7 +304,8 @@ class Order extends Controller
                            'name' => $provider_data->name,
                             'phone' => $provider_data->phone,
                             'rate' => $provider_data->rate,
-                           'state'=>$user_order->state
+                           'state'=>$user_order->state,
+                           'card_used'=>$user_order->card_used
 
                         ]
                     );

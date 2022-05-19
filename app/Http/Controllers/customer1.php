@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\order_model;
+use App\user_cards;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use App\customer;
@@ -84,6 +85,9 @@ class customer1 extends Controller
 
     return 'otp has been sent';
 }
+
+
+
 function register_user(Request $request,$otp)
 {
 
@@ -198,6 +202,38 @@ function session(Request $request){
     }
 
 
+       function register_card(Request $request){
 
+           $data = user_cards::Create([
+
+               'user_id' => $request->id,
+               'token' => $request->token,
+               'mask_pan' => $request->masked_pan,
+
+
+
+           ]);
+           return 'card has been added';
+
+
+}
+
+    function get_user_cards(Request $request){
+
+        $data = user_cards::where('user_id',$request->id)->get();
+        if ($data){
+
+
+
+            return $data;
+
+
+        }else{
+
+            return 'Empty';
+        }
+
+
+    }
 
 }

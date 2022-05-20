@@ -331,12 +331,12 @@ class Order extends Controller
 
     }
 
-    function Order_data(Request $request){
+    function order_data(Request $request){
 
         $user_order = order_model::where('id',$request->order_id)->first();
             if ($user_order) {
                 $provider_data = provider_data::where('provider_id', $user_order->tech_id)->first();
-                $wallet = customer::where('id', $request->user_id)->first();
+                $wallet = customer::where('id', $user_order->user_id)->first();
                 if ($provider_data) {
                     $data = response()->json([
                             'order_id' => $user_order->id,

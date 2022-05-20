@@ -80,5 +80,5 @@ Route::post('/payed_amount',[\App\Http\Controllers\Order::class,'payed_amount'])
 
 Route::get('/getprice',[\App\Http\Controllers\Order::class,'getprice']);
 
-Route::get('/Order_data',[\App\Http\Controllers\Order::class,'Order_data']);
+Route::get('/order_data',[\App\Http\Controllers\Order::class,'order_data']);
 

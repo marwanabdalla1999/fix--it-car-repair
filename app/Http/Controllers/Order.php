@@ -451,8 +451,10 @@ if ($car_data) {
         $order = order_model::where('id', $request->order_id)->first();
 
         if($order) {
-                $order->payed_amount=$request->payed_amount;
-            $order->amount_from_wallet=$request->wallet;
+            $user = customer::where('id', $order->user_id)->first();
+                $user->wallet=$request->remain_in_wallet;
+            $order->payed_amount=$request->payed_amount;
+            $order->amount_from_wallet=$request->amount_from_wallet;
             $order->state="finished";
 
             return 'payment successfully';

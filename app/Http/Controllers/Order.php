@@ -456,7 +456,7 @@ if ($car_data) {
             $order->payed_amount=$request->payed_amount;
             $order->amount_from_wallet=$request->amount_from_wallet;
             $order->state="finished";
-
+            $order->save();
             return 'payment successfully';
 
         }

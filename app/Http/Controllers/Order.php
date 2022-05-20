@@ -331,6 +331,46 @@ class Order extends Controller
 
     }
 
+    function Order_data(Request $request){
+
+        $user_order = order_model::where('id',$request->order_id)->first();
+            if ($user_order) {
+                $provider_data = provider_data::where('provider_id', $user_order->tech_id)->first();
+                $wallet = customer::where('id', $request->user_id)->first();
+                if ($provider_data) {
+                    $data = response()->json([
+                            'order_id' => $user_order->id,
+                            'location_lat_lng' => $user_order->location_lat_lng,
+                            'amount' => $user_order->amount,
+                            'time' => $user_order->time,
+                            'distance' => $user_order->distance,
+                            'technican_location' => $user_order->tech_location,
+                            'name' => $provider_data->name,
+                            'phone' => $provider_data->phone,
+                            'rate' => $provider_data->rate,
+                            'state'=>$user_order->state,
+                            'card_used'=>$user_order->card_used,
+                            'wallet'=>$wallet->wallet
+                        ]
+                    );
+
+                    return $data;
+
+                } else {
+
+                    return 'provider_not_found';
+                }
+            } else {
+                return "order not found";
+
+            }
+
+
+
+
+
+    }
+
     function getOrder_data_tech(Request $request){
         $response= $this->session_provider($request);
         if ($response=='login') {

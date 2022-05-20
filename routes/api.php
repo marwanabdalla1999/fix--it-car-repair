@@ -75,3 +75,9 @@ Route::post('/add_card',[\App\Http\Controllers\customer1::class,'register_card']
 
 
 Route::post('/getcard_data',[\App\Http\Controllers\customer1::class,'getcard_data']);
+
+Route::post('/payed_amount',[\App\Http\Controllers\Order::class,'payed_amount']);
+
+Route::get('/getprice',[\App\Http\Controllers\Order::class,'getprice']);
+
+

@@ -293,6 +293,7 @@ class Order extends Controller
                 ['state', '=', 'wait_for_paying']])->first();
             if ($user_order) {
                 $provider_data = provider_data::where('provider_id', $user_order->tech_id)->first();
+                $wallet = customer::where('id', $request->user_id)->first();
                 if ($provider_data) {
                    $data = response()->json([
                             'order_id' => $user_order->id,
@@ -305,8 +306,8 @@ class Order extends Controller
                             'phone' => $provider_data->phone,
                             'rate' => $provider_data->rate,
                            'state'=>$user_order->state,
-                           'card_used'=>$user_order->card_used
-
+                           'card_used'=>$user_order->card_used,
+                            'wallet'=>$wallet->wallet
                         ]
                     );
 
@@ -446,4 +447,41 @@ if ($car_data) {
         }
 
     }
+    function payed_amount(Request $request){
+        $order = order_model::where('id', $request->order_id)->first();
+
+        if($order) {
+                $order->payed_amount=$request->payed_amount;
+            $order->amount_from_wallet=$request->wallet;
+
+            return 'payment successfully';
+
+        }
+        else{
+            return "error in record payment";
+
+        }
+
+    }
+
+    function getprice(Request $request){
+        $order = order_model::where('id', $request->order_id)->first();
+        if($order) {
+            $user_wallet = customer::where('id', $order->user_id)->first();
+
+            return response()->json([
+                'user_wallet' => $user_wallet->wallet,
+                'order_price' => $order->amount,
+
+
+            ]);
+
+        }
+        else{
+            return "error";
+        }
+
+    }
+
+
 }

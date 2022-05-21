@@ -526,5 +526,19 @@ if ($car_data) {
 
     }
 
+    function delete_offers(Request $request){
+        $offers=tech_offer::where('technican_id',$request->id)->delete();
+        if ($offers){
+            return 'deleted';
+        }
+
+        else{
+
+            return 'error';
+        }
+
+    }
+
+
 
 }

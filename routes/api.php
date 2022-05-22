@@ -83,3 +83,6 @@ Route::get('/getprice',[\App\Http\Controllers\Order::class,'getprice']);
 Route::get('/order_data',[\App\Http\Controllers\Order::class,'order_data']);
 
 Route::get('/delete_over_flow_offers',[\App\Http\Controllers\Order::class,'delete_offers']);
+
+
+Route::post('/register_token',[\App\Http\Controllers\customer1::class,'register_token']);

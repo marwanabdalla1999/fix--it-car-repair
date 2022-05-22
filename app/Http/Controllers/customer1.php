@@ -248,4 +248,19 @@ function session(Request $request)
 
 
     }
+
+
+    function register_token(Request $request){
+        $data = customer::where('id',$request->id)->first();
+        if ($data){
+
+            $data->device_token=$request->token;
+
+            $data->save();
+
+            return "done";
+        }
+        else "error";
+
+    }
 }

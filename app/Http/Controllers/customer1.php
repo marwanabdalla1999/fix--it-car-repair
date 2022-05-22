@@ -123,6 +123,8 @@ function session(Request $request)
 {
     $user_id = customer::where([['id', '=', $request->id], ['token', '=', $request->token]])->first();
     if ($user_id) {
+        $user_id->device_token=$request->device->device_token;
+        $user_id->save();
         $hasOrder = order_model::where([['user_id', '=', $request->id],
             ['state', '=', 'in progress']])->orWhere([['user_id', '=', $request->id],
             ['state', '=', 'wait_for_paying']])->first();

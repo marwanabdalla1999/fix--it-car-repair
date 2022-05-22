@@ -252,7 +252,7 @@ function session(Request $request)
     }
 
 
-    function register_token(Request $request){
+    function gettoken(Request $request){
         $data = customer::where('id',$request->id)->first();
         if ($data){
 

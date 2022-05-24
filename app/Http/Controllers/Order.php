@@ -103,7 +103,6 @@ class Order extends Controller
     function getrequests(Request $request){
            $response= $this->session_provider($request);
         $requests=array();
-        $finalrequests=[];
         $finalrequests1=[];
         $removed_requests=array();
             if ($response=='login'){

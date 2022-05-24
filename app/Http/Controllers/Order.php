@@ -490,6 +490,7 @@ if ($car_data) {
         if($order) {
             $user = customer::where('id', $order->user_id)->first();
                 $user->wallet=$request->remain_in_wallet;
+                $user->save();
             $order->payed_amount=$request->payed_amount;
             $order->amount_from_wallet=$request->amount_from_wallet;
             $order->state="finished";

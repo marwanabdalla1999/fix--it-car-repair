@@ -86,3 +86,7 @@ Route::get('/delete_over_flow_offers',[\App\Http\Controllers\Order::class,'delet
 
 
 Route::post('/register_token',[\App\Http\Controllers\customer1::class,'register_token']);
+
+
+Route::get('/get_transactions',[\App\Http\Controllers\customer1::class,'get_transactions']);
+Route::get('/get_current_balance',[\App\Http\Controllers\customer1::class,'get_current_balance']);

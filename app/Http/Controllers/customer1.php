@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\order_model;
+use App\transactions_history;
 use App\user_cards;
 use http\Env\Response;
 use Illuminate\Http\Request;
@@ -245,7 +246,7 @@ function session(Request $request)
 
         }else{
 
-            return 'not found';
+            return 'Empty';
         }
 
 
@@ -264,5 +265,28 @@ function session(Request $request)
         }
         else "error";
 
+    }
+
+
+    function get_transactions(Request $request){
+        $data = transactions_history::where('user_id',$request->id)->get();
+        if ($data){
+
+                return $data;
+        }
+        else {
+            "Empty";
+        }
+    }
+
+    function get_current_balance(Request $request){
+        $data = customer::where('id',$request->id)->first();
+        if ($data){
+
+            return $data->wallet;
+        }
+        else {
+            "not_found";
+        }
     }
 }

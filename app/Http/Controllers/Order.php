@@ -8,8 +8,10 @@ use App\provider_data;
 use App\provider_login;
 use App\requests;
 use App\tech_offer;
+use App\transactions_history;
 use Illuminate\Http\Request;
 use App\order_model;
+use Illuminate\Support\Str;
 
 class Order extends Controller
 
@@ -492,6 +494,15 @@ if ($car_data) {
             $order->amount_from_wallet=$request->amount_from_wallet;
             $order->state="finished";
             $order->save();
+            if ($request->amount_from_wallet!=0){
+
+                 transactions_history::Create([
+                    'user_id' => $order->user_id,
+                    'amount' => $request->amount_from_wallet,
+                    'order_name' =>$order->issue
+
+                ]);
+            }
             return 'payment successfully';
 
         }

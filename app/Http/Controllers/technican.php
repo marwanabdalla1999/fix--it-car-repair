@@ -104,9 +104,8 @@ class technican extends Controller
 
     }
     function session(Request $request){
-        $user_id = provider_login::where('id', $request->id)->first();
-        if ($user_id){
-            if ($user_id->token==$request->token){
+        $tech_id =provider_login::where([['id', '=', $request->id], ['token', '=', $request->token]])->first();
+        if ($tech_id){
                 $hasOrder =order_model::where([['tech_id', '=', $request->id],
                     ['state', '=', 'in progress']])->orWhere([['tech_id', '=', $request->id],
                     ['state', '=', 'wait_for_paying']])->first();
@@ -116,11 +115,8 @@ class technican extends Controller
                 }
 else{
                 return 'login';}
-            }
-            else{
-                return 'logout';
 
-            }
+
         }
         else{
 

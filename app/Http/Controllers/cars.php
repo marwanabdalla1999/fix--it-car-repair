@@ -18,17 +18,14 @@ class cars extends Controller
 {
 
     function session(Request $request){
-        $user_id = customer::where('id', $request->id)->first();
+
+        $user_id = customer::where([['id', '=', $request->id], ['token', '=', $request->token]])->first();
         if ($user_id){
-            if ($user_id->token==$request->token){
 
 
                 return 'login';
-            }
-            else{
-                return 'logout';
 
-            }
+
         }
         else{
 

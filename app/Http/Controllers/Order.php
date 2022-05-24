@@ -177,7 +177,6 @@ class Order extends Controller
         ['token','=',$request->token]])->first();
         if ($tech_id){
 
-
                 return 'login';
 
         }

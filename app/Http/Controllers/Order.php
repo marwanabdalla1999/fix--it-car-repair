@@ -494,7 +494,7 @@ if ($car_data) {
             $order->amount_from_wallet=$request->amount_from_wallet;
             $order->state="finished";
             $order->save();
-            if ($request->amount_from_wallet!=0){
+            if ($request->amount_from_wallet!='0'){
 
                  transactions_history::Create([
                     'user_id' => $order->user_id,

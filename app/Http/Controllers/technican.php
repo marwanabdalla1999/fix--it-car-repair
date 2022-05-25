@@ -81,6 +81,9 @@ class technican extends Controller
         $tech_id = provider_login::where([['username','=',$request->username],['password','=',$request->password]])->first();
 
         if ($tech_id) {
+            if ($request->device_token!="0"){
+                $tech_id->device_token=$request->device_token;
+                $tech_id->save();}
             $tech_data = provider_data::where('provider_id', $tech_id->id)->first();
             $response = response()->json([
                     'id' => $tech_id->id,
@@ -106,6 +109,9 @@ class technican extends Controller
     function session(Request $request){
         $tech_id =provider_login::where([['id', '=', $request->id], ['token', '=', $request->token]])->first();
         if ($tech_id){
+            if ($request->device_token!="0"){
+            $tech_id->device_token=$request->device_token;
+            $tech_id->save();}
                 $hasOrder =order_model::where([['tech_id', '=', $request->id],
                     ['state', '=', 'in progress']])->orWhere([['tech_id', '=', $request->id],
                     ['state', '=', 'wait_for_paying']])->first();

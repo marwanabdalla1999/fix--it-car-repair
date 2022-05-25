@@ -44,7 +44,7 @@ class customer1 extends Controller
             if($user_id) {
                 $user_id->otp = '0';
                 $user_id->verifyed = 'true';
-
+                $user_id->device_token=$request->device_token;
                 $user_id->save();
             }
             $retval=response()-> json([

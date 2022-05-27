@@ -90,3 +90,6 @@ Route::post('/register_token',[\App\Http\Controllers\customer1::class,'register_
 
 Route::get('/get_transactions',[\App\Http\Controllers\customer1::class,'get_transactions']);
 Route::get('/get_current_balance',[\App\Http\Controllers\customer1::class,'get_current_balance']);
+
+
+Route::post('/update_tech_location',[\App\Http\Controllers\Order::class,'update_tech_location']);

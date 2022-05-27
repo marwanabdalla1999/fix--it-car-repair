@@ -548,6 +548,20 @@ if ($car_data) {
 
     }
 
+    function update_tech_location(Request $request){
+        $order=order_model::where('id',$request->order_id)->first();
+        if ($order){
 
+            $order->tech_location=$request->tech_location;
+            $order->save();
+            return 'updated';
+        }
+
+        else{
+
+            return 'error';
+        }
+
+    }
 
 }

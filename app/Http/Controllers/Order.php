@@ -152,6 +152,7 @@ class Order extends Controller
 
         $response= $this->session_provider($request);
         if ($response=='login'){
+            $device_token=provider_login::where('id',$request->id);
             $data = tech_offer::Create([
 
                 'user_id' => $request->user_id,
@@ -160,7 +161,8 @@ class Order extends Controller
                 'order_id' =>$request->order_id,
                 'technican_id' =>$request->id,
                 'distance' =>$request->distance,
-                'technican_location' =>$request->technican_location
+                'technican_location' =>$request->technican_location,
+                'device_token'=>$device_token->device_token
 
 
             ]);

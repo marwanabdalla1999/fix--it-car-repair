@@ -506,6 +506,15 @@ if ($car_data) {
 
                 ]);
             }
+            if ($request->added_to_wallet!='0'){
+
+                transactions_history::Create([
+                    'user_id' => $order->user_id,
+                    'amount' => $request->added_to_wallet,
+                    'order_name' =>$order->issue
+
+                ]);
+            }
             return 'payment successfully';
 
         }

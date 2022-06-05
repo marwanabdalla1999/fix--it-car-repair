@@ -93,3 +93,7 @@ Route::get('/get_current_balance',[\App\Http\Controllers\customer1::class,'get_c
 
 
 Route::post('/update_tech_location',[\App\Http\Controllers\Order::class,'update_tech_location']);
+
+
+
+Route::post('/get_user_history',[\App\Http\Controllers\customer1::class,'get_orders']);

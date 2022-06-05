@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\add_user_car;
 use App\order_model;
 use App\transactions_history;
 use App\user_cards;
@@ -244,6 +245,28 @@ function session(Request $request)
             return $data;
 
 
+        }else{
+
+            return 'Empty';
+        }
+
+
+    }
+    function get_orders(Request $request){
+
+        $data = order_model::where('user_id',$request->id)->get();
+        if ($data){
+
+            $car=add_user_car::where('id',$data->car_id);
+            if ($car) {
+
+                    $data->car_id=$car->brand." ".$car->model;
+                return $data;
+
+            }
+            else{
+                return 'car not found';
+            }
         }else{
 
             return 'Empty';

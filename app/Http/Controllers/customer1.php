@@ -129,7 +129,7 @@ function session(Request $request)
         $user_id->save();
         $hasOrder = order_model::where([['user_id', '=', $request->id],
             ['state', '=', 'in progress']])->orWhere([['user_id', '=', $request->id],
-            ['state', '=', 'wait_for_paying']])->first();
+            ['state', '=', 'wait for paying']])->first();
         if ($hasOrder) {
             return 'login/request_order';
 

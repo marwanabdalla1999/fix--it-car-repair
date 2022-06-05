@@ -114,7 +114,7 @@ class technican extends Controller
             $tech_id->save();}
                 $hasOrder =order_model::where([['tech_id', '=', $request->id],
                     ['state', '=', 'in progress']])->orWhere([['tech_id', '=', $request->id],
-                    ['state', '=', 'wait_for_paying']])->first();
+                    ['state', '=', 'wait for paying']])->first();
                 if ($hasOrder){
 
                     return 'login/provide_order';

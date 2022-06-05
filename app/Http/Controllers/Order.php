@@ -289,7 +289,7 @@ class Order extends Controller
         if ($response=='login') {
             $user_order = order_model::where([['user_id', '=', $request->user_id],
                 ['state', '=', 'in progress']])->orWhere([['user_id', '=', $request->user_id],
-                ['state', '=', 'wait_for_paying']])->first();
+                ['state', '=', 'wait for paying']])->first();
             if ($user_order) {
                 $provider_data = provider_data::where('provider_id', $user_order->tech_id)->first();
                 $wallet = customer::where('id', $request->user_id)->first();
@@ -375,7 +375,7 @@ class Order extends Controller
         if ($response=='login') {
             $tech_order = order_model::where([['tech_id', '=', $request->id],
                 ['state', '=', 'in progress']])->orWhere([['tech_id', '=', $request->id],
-                ['state', '=', 'wait_for_paying']])->first();
+                ['state', '=', 'wait for paying']])->first();
             if ($tech_order) {
                 $user_data = customer::where('id', $tech_order->user_id)->first();
                 if ($user_data) {

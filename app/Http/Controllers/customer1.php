@@ -254,19 +254,18 @@ function session(Request $request)
     }
     function get_orders(Request $request){
 
-        $data = order_model::where('user_id',$request->id)->get();
-        if ($data){
-
-            $car=add_user_car::where('id',$data->car_id)->first();
+        $orders = order_model::where('user_id',$request->id)->get();
+        if ($orders){
+        foreach ($orders as $order){
+            $car=add_user_car::where('id',$order->car_id)->first();
             if ($car) {
 
-                    $data->car_id=$car->brand." ".$car->model;
-                return $data;
+                $order->car_id=$car->brand." ".$car->model;
 
             }
-            else{
-                return 'car not found';
-            }
+        }
+            return $orders;
+
         }else{
 
             return 'Empty';

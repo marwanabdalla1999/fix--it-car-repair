@@ -257,7 +257,7 @@ function session(Request $request)
         $data = order_model::where('user_id',$request->id)->get();
         if ($data){
 
-            $car=add_user_car::where('id',$data->car_id);
+            $car=add_user_car::where('id',$data->car_id)->first();
             if ($car) {
 
                     $data->car_id=$car->brand." ".$car->model;

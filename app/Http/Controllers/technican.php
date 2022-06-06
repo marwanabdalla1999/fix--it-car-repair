@@ -182,6 +182,21 @@ else{
 
     }
 
+    function update_tech_location(Request $request){
+        $tech=provider_data::where('provider_id',$request->id)->first();
+        if ($tech){
+
+            $tech->provider_location=$request->tech_location;
+            $tech->save();
+            return 'updated';
+        }
+
+        else{
+
+            return 'error';
+        }
+
+    }
 
 
 }

@@ -300,7 +300,7 @@ class Order extends Controller
                             'amount' => $user_order->amount,
                             'time' => $user_order->time,
                             'distance' => $user_order->distance,
-                           'technican_location' => $user_order->tech_location,
+                           'technican_location' => $provider_data->provider_location,
                            'name' => $provider_data->name,
                             'phone' => $provider_data->phone,
                             'rate' => $provider_data->rate,
@@ -343,7 +343,7 @@ class Order extends Controller
                             'amount' => $user_order->amount,
                             'time' => $user_order->time,
                             'distance' => $user_order->distance,
-                            'technican_location' => $user_order->tech_location,
+                            'technican_location' => $provider_data->provider_location,
                             'name' => $provider_data->name,
                             'phone' => $provider_data->phone,
                             'rate' => $provider_data->rate,
@@ -557,20 +557,6 @@ if ($car_data) {
 
     }
 
-    function update_tech_location(Request $request){
-        $order=order_model::where('id',$request->order_id)->first();
-        if ($order){
 
-            $order->tech_location=$request->tech_location;
-            $order->save();
-            return 'updated';
-        }
-
-        else{
-
-            return 'error';
-        }
-
-    }
 
 }

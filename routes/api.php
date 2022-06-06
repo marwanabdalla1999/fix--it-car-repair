@@ -92,8 +92,10 @@ Route::get('/get_transactions',[\App\Http\Controllers\customer1::class,'get_tran
 Route::get('/get_current_balance',[\App\Http\Controllers\customer1::class,'get_current_balance']);
 
 
-Route::post('/update_tech_location',[\App\Http\Controllers\Order::class,'update_tech_location']);
+Route::post('/update_tech_location',[\App\Http\Controllers\technican::class,'update_tech_location']);
 
 
 
 Route::post('/get_user_history',[\App\Http\Controllers\customer1::class,'get_orders']);
+
+

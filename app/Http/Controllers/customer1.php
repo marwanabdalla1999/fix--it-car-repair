@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\add_user_car;
 use App\order_model;
+use App\provider_data;
 use App\transactions_history;
 use App\user_cards;
 use http\Env\Response;
@@ -309,6 +310,17 @@ function session(Request $request)
         }
         else {
             "not_found";
+        }
+    }
+
+    function get_tech_locations(Request $request){
+        $data = provider_data::all();
+        if ($data){
+
+            return $data;
+        }
+        else {
+            "Empty";
         }
     }
 }

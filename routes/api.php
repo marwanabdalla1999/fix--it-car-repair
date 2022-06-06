@@ -99,3 +99,4 @@ Route::post('/update_tech_location',[\App\Http\Controllers\technican::class,'upd
 Route::post('/get_user_history',[\App\Http\Controllers\customer1::class,'get_orders']);
 
 
+Route::get('/get_tech_locations',[\App\Http\Controllers\customer1::class,'get_tech_locations']);

@@ -388,6 +388,7 @@ if ($car_data) {
         'amount' => $tech_order->amount,
         'name' => $user_data->name,
         'phone' => $user_data->phone,
+        'device_token' => $user_data->device_token,
         'payment_way' => $tech_order->payment_way,
         'address' => $tech_order->address,
         'issue' => $tech_order->issue,

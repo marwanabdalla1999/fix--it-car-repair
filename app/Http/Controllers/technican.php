@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\add_user_car;
 use App\brand_type;
 use App\brand_type_model;
 use App\order_model;
@@ -198,5 +199,25 @@ else{
 
     }
 
+    function get_orders_tech(Request $request){
 
+        $orders = order_model::where('tech_id',$request->id)->get();
+        if ($orders){
+            foreach ($orders as $order){
+                $car=add_user_car::where('id',$order->car_id)->first();
+                if ($car) {
+
+                    $order->car_id=$car->brand." ".$car->model;
+
+                }
+            }
+            return $orders;
+
+        }else{
+
+            return 'Empty';
+        }
+
+
+    }
 }

@@ -17,19 +17,8 @@ use Google\Cloud\Storage;
 class technican extends Controller
 {
     function add_new_provider(Request $request){
-   $data2=new provider_data();
-        $image = $request->file('photo'); //image file from frontend
-        $firebase_storage_path = 'provider_photo/';
-        $name     = $request->phone;
-        $localfolder = public_path('firebase-temp-uploads') .'/';
-        $extension = $image->getClientOriginalExtension();
-        $file      = $name. '.' . $extension;
-        if ($image->move($localfolder, $file)) {
-            $uploadedfile = fopen($localfolder.$file, 'r');
-            app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => $firebase_storage_path . $name]);
-            //will remove from local laravel folder
-            unlink($localfolder . $file);
-        }
+  
+
     /*    if($request->hasFile('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();

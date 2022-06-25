@@ -230,7 +230,7 @@ function session(Request $request)
 
         }
         else{
-            
+
             return $data;
         }
 

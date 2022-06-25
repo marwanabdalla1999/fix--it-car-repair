@@ -17,7 +17,7 @@ use Google\Cloud\Storage;
 class technican extends Controller
 {
     function add_new_provider(Request $request){
-  
+
 
     /*    if($request->hasFile('photo')){
             $file= $request->file('photo');

@@ -222,16 +222,16 @@ function session(Request $request)
     function get_user_cards(Request $request){
 
         $data = user_cards::where('user_id',$request->id)->get();
-        if ($data){
+        if ($data->isEmpty()){
 
-
-
-            return $data;
-
-
-        }else{
 
             return 'Empty';
+
+
+        }
+        else{
+            
+            return $data;
         }
 
 

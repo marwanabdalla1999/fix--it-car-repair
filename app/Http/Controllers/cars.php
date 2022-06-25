@@ -150,14 +150,9 @@ function getusercars(Request $request){
 
         $data=add_user_car::where('user_id',$request->id)->get();
 
-        if($data->isEmpty()){
-
-            return 'Empty';
-        }
-        else {
 
             return $data;
-        }
+        
     }
 
     else if($this->session($request)=='logout'){

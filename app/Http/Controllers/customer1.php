@@ -210,6 +210,7 @@ function session(Request $request)
                'user_id' => $request->id,
                'token' => $request->token,
                'mask_pan' => $request->masked_pan,
+               'card_id' => $request->card_id,
 
 
 

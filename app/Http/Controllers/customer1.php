@@ -336,9 +336,10 @@ function session(Request $request)
     }
 
     function delete_car(Request $request){
-        $data = add_user_car::where('id',$request->id)->delete();
+        $data = add_user_car::where('id',$request->id)->first();
         if ($data){
-
+                $data->state="removed";
+                $data->save();
             return "deleted";
         }
         else {

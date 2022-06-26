@@ -129,6 +129,7 @@ if ($this->session($request)=='login'){
         'model'=>$request->model,
         'year'=>$request->year,
         'color'=>$request->color,
+        'state'=>'active'
 
 
     ]);
@@ -148,7 +149,8 @@ else if($this->session($request)=='logout'){
 function getusercars(Request $request){
     if ($this->session($request)=='login'){
 
-        $data=add_user_car::where('user_id',$request->id)->get();
+        $data=add_user_car::where([['user_id','==',$request->id]
+        ,['state','==','active']])->get();
 
 
             return $data;

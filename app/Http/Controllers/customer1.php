@@ -323,4 +323,15 @@ function session(Request $request)
             "Empty";
         }
     }
+
+    function delete_card(Request $request){
+        $data = user_cards::where('id',$request->id)->delete();
+        if ($data){
+
+            return "deleted";
+        }
+        else {
+            "Empty";
+        }
+    }
 }

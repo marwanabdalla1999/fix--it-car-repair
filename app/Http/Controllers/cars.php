@@ -152,7 +152,7 @@ function getusercars(Request $request){
 
 
             return $data;
-        
+
     }
 
     else if($this->session($request)=='logout'){

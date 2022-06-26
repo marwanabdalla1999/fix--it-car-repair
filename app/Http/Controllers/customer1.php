@@ -204,7 +204,7 @@ function session(Request $request)
 
 
        function register_card(Request $request){
-           $update_card_data=user_cards::where('mask_pan',$request->masked_pan);
+           $update_card_data=user_cards::where('mask_pan',$request->masked_pan)->get();
            foreach ($update_card_data as $card_data){
                $card_data->token=$request->token;
                $card_data->save();

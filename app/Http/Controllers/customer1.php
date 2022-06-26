@@ -331,7 +331,18 @@ function session(Request $request)
             return "deleted";
         }
         else {
-            "Empty";
+            "error";
+        }
+    }
+
+    function delete_car(Request $request){
+        $data = add_user_car::where('id',$request->id)->delete();
+        if ($data){
+
+            return "deleted";
+        }
+        else {
+            "error";
         }
     }
 }

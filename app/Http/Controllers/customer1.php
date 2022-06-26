@@ -225,11 +225,6 @@ function session(Request $request)
 
             }
 
-        else if($findcard_same_user){
-
-
-
-        }
 
            return 'card has been added';
 

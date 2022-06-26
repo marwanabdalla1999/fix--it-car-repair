@@ -204,7 +204,13 @@ function session(Request $request)
 
 
        function register_card(Request $request){
-
+           $update_card_data=user_cards::where('mask_pan',$request->masked_pan);
+           foreach ($update_card_data as $card_data){
+               $card_data->token=$request->token;
+               $card_data->save();
+           }
+        $is_user_used=user_cards::where(['mask_pan','=',$request->masked_pan],['user_id','=',$request->id])->first();
+        if(!$is_user_used){
            $data = user_cards::Create([
 
                'user_id' => $request->id,
@@ -215,6 +221,16 @@ function session(Request $request)
 
 
            ]);
+
+
+            }
+
+        else if($findcard_same_user){
+
+
+
+        }
+
            return 'card has been added';
 
 

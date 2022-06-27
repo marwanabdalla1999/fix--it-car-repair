@@ -397,7 +397,9 @@ if ($car_data) {
         'address' => $tech_order->address,
         'issue' => $tech_order->issue,
         'carname' => $car_data->brand." ".$car_data->model,
-        'state'=>$tech_order->state
+        'state'=>$tech_order->state,
+        'voucher'=>$user_data->voucher
+
 
     ]);
 
@@ -501,6 +503,8 @@ if ($car_data) {
             $order->payed_amount=$request->payed_amount;
             $order->amount_from_wallet=$request->amount_from_wallet;
             $order->state="finished";
+            $order->voucher=$request->voucher;
+
             $order->save();
             if ($request->amount_from_wallet!='0'){
 
@@ -537,6 +541,7 @@ if ($car_data) {
 
             return response()->json([
                 'user_wallet' => $user_wallet->wallet,
+                'voucher' => $user_wallet->voucher,
                 'order_price' => $order->amount,
 
 

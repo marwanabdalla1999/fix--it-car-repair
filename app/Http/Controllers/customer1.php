@@ -359,4 +359,14 @@ function session(Request $request)
             "error";
         }
     }
+
+    function getvouter(Request $request){
+        $data = customer::where('id',$request->id)->first();
+        if ($data){
+            return$data->voucher;
+        }
+        else {
+            "error";
+        }
+    }
 }

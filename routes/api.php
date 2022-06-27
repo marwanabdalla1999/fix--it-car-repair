@@ -106,3 +106,5 @@ Route::get('/get_tech_history',[\App\Http\Controllers\technican::class,'get_orde
 Route::post('/delete_card',[\App\Http\Controllers\customer1::class,'delete_card']);
 
 Route::post('/delete_car',[\App\Http\Controllers\customer1::class,'delete_car']);
+
+Route::get('/getvouter',[\App\Http\Controllers\customer1::class,'getvouter']);

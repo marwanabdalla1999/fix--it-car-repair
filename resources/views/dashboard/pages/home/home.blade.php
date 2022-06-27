@@ -43,8 +43,8 @@
                                                                         <div class="row heading">
                                                                             <div class="col-sm-3 col-xs-3 heading-avatar">
                                                                                 <div class="heading-avatar-icon">
-                                                                                    <img src="{{url('public/backend/uploads/images/doctor/'.Auth::guard('doctor')->user()->image)}}">
-                                                                                    <a href="">{{Auth::guard('doctor')->user()->name}}</a>
+                                                                                    <img src="">
+                                                                                    <a href=""></a>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-sm-1 col-xs-1  heading-dot  pull-right">
@@ -70,33 +70,33 @@
                                                                         </div>
 
                                                                         <div class="row sideBar">
-                                                                            @foreach($userData as $doctor)
-                                                                                <a href="javascript:void(0)"
-                                                                                   id="receiver_username"
-                                                                                   class="receiver_username"
-                                                                                   data-id="{{$doctor->username}}">
-                                                                                    <div class="row sideBar-body">
+{{--                                                                            @foreach($userData as $doctor)--}}
+{{--                                                                                <a href="javascript:void(0)"--}}
+{{--                                                                                   id="receiver_username"--}}
+{{--                                                                                   class="receiver_username"--}}
+{{--                                                                                   data-id="{{$doctor->username}}">--}}
+{{--                                                                                    <div class="row sideBar-body">--}}
 
-                                                                                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
-                                                                                            <div class="avatar-icon">
-                                                                                                <img src="{{url('public/backend/uploads/images/user/'.$doctor->image)}}">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-sm-9 col-xs-9 sideBar-main">
-                                                                                            <div class="row">
-                                                                                                <div class="col-sm-8 col-xs-8 sideBar-name">
-                                            <span class="name-meta">{{$doctor->username}}
-                                             </span>
-                                                                                                </div>
-                                                                                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                                             <span class="time-meta pull-right">18:18
-                                             </span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
-                                                                            @endforeach
+{{--                                                                                        <div class="col-sm-3 col-xs-3 sideBar-avatar">--}}
+{{--                                                                                            <div class="avatar-icon">--}}
+{{--                                                                                                <img src="{{url('public/backend/uploads/images/user/'.$doctor->image)}}">--}}
+{{--                                                                                            </div>--}}
+{{--                                                                                        </div>--}}
+{{--                                                                                        <div class="col-sm-9 col-xs-9 sideBar-main">--}}
+{{--                                                                                            <div class="row">--}}
+{{--                                                                                                <div class="col-sm-8 col-xs-8 sideBar-name">--}}
+{{--                                            <span class="name-meta">{{$doctor->username}}--}}
+{{--                                             </span>--}}
+{{--                                                                                                </div>--}}
+{{--                                                                                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">--}}
+{{--                                             <span class="time-meta pull-right">18:18--}}
+{{--                                             </span>--}}
+{{--                                                                                                </div>--}}
+{{--                                                                                            </div>--}}
+{{--                                                                                        </div>--}}
+{{--                                                                                    </div>--}}
+{{--                                                                                </a>--}}
+{{--                                                                            @endforeach--}}
 
                                                                         </div>
                                                                     </div>

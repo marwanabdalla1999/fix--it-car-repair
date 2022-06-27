@@ -505,7 +505,7 @@ if ($car_data) {
             $order->amount_from_wallet=$request->amount_from_wallet;
             $order->state="finished";
             $order->voucher=$request->voucher;
-
+            $order->payment_way=$request->payment_way;
             $order->save();
             if ($request->amount_from_wallet!='0'){
 

@@ -306,7 +306,9 @@ class Order extends Controller
                             'rate' => $provider_data->rate,
                            'state'=>$user_order->state,
                            'card_used'=>$user_order->card_used,
-                            'wallet'=>$wallet->wallet
+                            'wallet'=>$wallet->wallet,
+                            'voucher'=>$wallet->voucher
+
                         ]
                     );
 
@@ -349,7 +351,9 @@ class Order extends Controller
                             'rate' => $provider_data->rate,
                             'state'=>$user_order->state,
                             'card_used'=>$user_order->card_used,
-                            'wallet'=>$wallet->wallet
+                            'wallet'=>$wallet->wallet,
+                            'voucher'=>$wallet->voucher
+
                         ]
                     );
 

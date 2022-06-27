@@ -110,7 +110,8 @@ function register_user(Request $request,$otp)
             'phone' => $request->phone,
             'token' => Str::random(50),
             'otp' => $otp,
-            'verifyed' => 'false'
+            'verifyed' => 'false',
+            'voucher'=>'50/50'
         ]);
         if ($data) {
             return "true";
@@ -210,7 +211,7 @@ function session(Request $request)
                $card_data->save();
            }
         $is_user_used=user_cards::where([['mask_pan','=',$request->masked_pan],['user_id','=',$request->id]])->first();
-        if($is_user_used=== null){
+        if($is_user_used===null){
            $data = user_cards::Create([
 
                'user_id' => $request->id,

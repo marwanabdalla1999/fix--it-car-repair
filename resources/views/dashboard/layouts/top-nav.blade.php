@@ -12,13 +12,13 @@
 
                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
                            aria-expanded="false">
-                            <img src="{{asset('assets/backend/uploads/images/doctor/'.Auth::guard('doctor')->user()->image)}}" alt="">
-                            {{Auth::guard('doctor')->user()->name}}
+                            <img src="" alt="">
+                            
                             <span class=" fa fa-angle-down"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-usermenu pull-right">
-                            <li><a href="{{route('setting-doctor')}}">setting</a></li>
-                            <li><a href="{{route('doctor-logout')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                            <li><a href="">setting</a></li>
+                            <li><a href=""><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                         </ul>
                     </li>
                 </ul>

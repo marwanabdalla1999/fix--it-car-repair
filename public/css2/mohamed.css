@@ -1,0 +1,61 @@
+.nav-item {
+    padding-right: 25px;
+}
+.nav-item .nav-link {
+    color :#0B4A93;
+    font-weight: bold;
+}
+.ml-2 {
+    margin-left: 2px;
+}
+.loginbtn {
+    background-color: #06489E;
+    color :white
+}
+.mt-30 {
+    margin-top: 30px;
+}
+.darkblue1 {
+    color:#0B4A93;
+    font-weight:600;
+
+}
+.babyblue {
+    color:#2370C8;
+}
+.feature-box-rounded {
+    background: linear-gradient(45deg, #f8f9fa, transparent);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0.6px 0.6px 0.6px #629adb;
+}
+.main-service-box:hover{
+	background-color: white;
+	-webkit-box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.16);
+	-moz-box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.16);
+	box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.16);
+	border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+.mt-2 {
+    margin-top: 2px;
+}
+.img-icon {
+    margin: 0 auto;
+    width: 78px;
+    height: 88px;
+    text-align: center;
+    display: block;
+}
+.bgsign {
+    background-color: #F8F9FA;
+    box-shadow: 3px 0 62px rgba(13, 3, 3, 0.18);
+    border-radius: 60px;
+
+}
+.blueback {
+    background-image: url(../images/Rectangle\ 61.png);
+}

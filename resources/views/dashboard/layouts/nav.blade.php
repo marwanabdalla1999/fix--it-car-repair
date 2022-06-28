@@ -2,7 +2,7 @@
     <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-                <a href="#" class="site_title"><i class="fa fa-user"></i> <span>{{Auth::guard('doctor')->user()->name}}</span></a>
+                <a href="#" class="site_title"><i class="fa fa-user"></i> <span></span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -21,7 +21,7 @@
 
                         <li><a><i class="fa fa-folder"></i>Prescription <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
-                                <li><a href="{{route('show-prescription')}}">show prescription</a></li>
+                                <li><a href="">show prescription</a></li>
                             </ul>
                         </li>
 

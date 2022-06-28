@@ -181,9 +181,7 @@
                                                                         </div>
                                                                         <div class="col-sm-9 col-xs-9 reply-main">
 
-                                                                            <form action="{{route('doctor-send-message')}}"
-                                                                                  id="send_message_cline_all"
-                                                                                  method="post">
+                                                                            <form action="" id="send_message_cline_all" method="post">
                                                                                 {{csrf_field()}}
                                                                                 <input type="hidden"
                                                                                        id="receiver_username">

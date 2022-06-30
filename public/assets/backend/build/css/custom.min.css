@@ -164,7 +164,7 @@
 }
 
 .left_col {
-    background: #2A3F54
+    background: #237ccc;
 }
 
 .nav-sm .container.body .col-md-3.left_col {
@@ -3613,7 +3613,7 @@ ul.project_files li a i {
  * bootstrap-vertical-tabs - v1.2.1
  * https://dbtek.github.io/bootstrap-vertical-tabs
  * 2014-11-07
- * Copyright (c) 2014 İsmail Demirbilek
+ * Copyright (c) 2014 Ä°smail Demirbilek
  * License: MIT
  */
 .tabs-left, .tabs-right {

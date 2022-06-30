@@ -2,8 +2,9 @@
     <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-                <img src="{{asset('assets/backend/build/images/logo.png')}}" class="site_title"/>
+                <img src="{{asset('assets/backend/build/images/logo.png')}}" class="site_title" width="100px" />
             </div>
+            <hr>
 
             <div class="clearfix"></div>
 

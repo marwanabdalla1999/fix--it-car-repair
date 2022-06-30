@@ -22,9 +22,7 @@ Route::any('/show-admin',[\App\Http\Controllers\admin::class,'show_admin'])->nam
 Route::any('/add-technicians', function () {
     return view('backend.pages.technicians.add-technicians');
 })->name('add-technicians');
-Route::any('/show-technicians', function () {
-    return view('backend.pages.technicians.show-technicians');
-})->name('show-technicians');
+Route::any('/show-technicians', [\App\Http\Controllers\technican::class,'show_tech'])->name('show-technicians');
 
 
 

@@ -22,10 +22,11 @@
                                     <tr>
                                         <th>S.n</th>
                                         <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Image</th>
+                                        <th>phone</th>
+                                        <th>spcialized at</th>
+                                        <th>provider location</th>
+                                        <th>rate</th>
                                         <th>Created at</th>
-                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -33,17 +34,12 @@
                                         <tr>
                                             <td>{{++$key}}</td>
                                             <td>{{$admin->name}}</td>
-                                            <td>{{$admin->email}}</td>
-                                            <td>
-                                                <img src="{{url('public/backend/uploads/images/admin/'.$admin->image)}}" alt="INF" width="50">
-                                            </td>
+                                            <td>{{$admin->phone}}</td>
+                                            <td>{{$admin->spcialized_at}}</td>
+                                            <td>{{$admin->provider_location}}</td>
+                                            <td>{{$admin->rate}}</td>
                                             <td>{{$admin->created_at->diffForHumans()}}</td>
-                                            <td>
-                                                <a href="{{route('admin-edit').'/'.$admin->id}}" class="btn btn-success btn-xs">
-                                                    <i class="fa fa-edit"></i> Edit</a>
-                                                <a href="{{route('admin-delete').'/'.$admin->id}}" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-xs">
-                                                    <i class="fa fa-trash"></i> Delete</a>
-                                            </td>
+
 
                                         </tr>
                                     @empty

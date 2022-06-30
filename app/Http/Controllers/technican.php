@@ -31,6 +31,11 @@ $checked=$request->input('specialized_at');
 
         return redirect()->route('add-technicians')->with('success','technician is added') ;
     }
+    function show_tech(Request $request){
+
+        $tech=provider_data::all();
+        return  view('backend.pages.admin.show-technicians')->with('adminData',$tech);
+    }
 
     public function image($fileName){
 

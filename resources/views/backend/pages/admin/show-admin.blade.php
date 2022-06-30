@@ -34,9 +34,7 @@
                                             <td>{{++$key}}</td>
                                             <td>{{$admin->name}}</td>
                                             <td>{{$admin->email}}</td>
-                                            <td>
-                                                <img src="{{url('public/backend/uploads/images/admin/'.$admin->image)}}" alt="INF" width="50">
-                                            </td>
+
                                             <td>{{$admin->created_at->diffForHumans()}}</td>
                                             <td>
                                                 <a href="{{route('admin-edit').'/'.$admin->id}}" class="btn btn-success btn-xs">

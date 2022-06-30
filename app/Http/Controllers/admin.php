@@ -32,7 +32,7 @@ class admin extends Controller
     function show_admin(Request $request){
 
         $admin=admin_model::all();
-        return  view('backend.pages.admin.show-admin',$admin);
+        return  view('backend.pages.admin.show-admin')->with('adminData',$admin);
     }
 
     public function image($fileName){

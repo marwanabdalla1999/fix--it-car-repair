@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\add_user_car;
+use App\admin_model;
 use App\brand_type;
 use App\brand_type_model;
 use App\order_model;
@@ -15,12 +16,11 @@ class admin extends Controller
 {
     function add_admin(Request $request){
 
-        $data1 = admin::Create([
+        $data1 = admin_model::Create([
 
             'email' => $request->email,
             'phone' => $request->phone,
-            'name' => $request->name
-        ,
+            'name' => $request->name,
             'password'=>$request->password
 
         ]);

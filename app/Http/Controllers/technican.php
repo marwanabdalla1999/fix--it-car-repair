@@ -34,7 +34,7 @@ $checked=$request->input('specialized_at');
     function show_tech(Request $request){
 
         $tech=provider_data::all();
-        return  view('backend.pages.admin.show-technicians')->with('adminData',$tech);
+        return  view('backend.pages.technicians.show-technicians')->with('adminData',$tech);
     }
 
     public function image($fileName){

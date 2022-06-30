@@ -23,8 +23,7 @@
                                         <th>S.n</th>
                                         <th>Name</th>
                                         <th>phone</th>
-                                        <th>spcialized at</th>
-                                        <th>provider location</th>
+                                        <th>spcialized in</th>
                                         <th>rate</th>
                                         <th>Created at</th>
                                     </tr>
@@ -35,8 +34,7 @@
                                             <td>{{++$key}}</td>
                                             <td>{{$admin->name}}</td>
                                             <td>{{$admin->phone}}</td>
-                                            <td>{{$admin->spcialized_at}}</td>
-                                            <td>{{$admin->provider_location}}</td>
+                                            <td>{{$admin->specialized_in}}</td>
                                             <td>{{$admin->rate}}</td>
                                             <td>{{$admin->created_at->diffForHumans()}}</td>
 

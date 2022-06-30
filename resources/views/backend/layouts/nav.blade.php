@@ -3,6 +3,7 @@
         <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
                 <img src="{{asset('assets/backend/build/images/logo.png')}}" class="site_title" width="100px" />
+                <hr style="background-color:black;"/>
             </div>
             <hr style="background-color:black;"/>
 
@@ -12,7 +13,7 @@
 
             <br/>
 
-
+            <hr style="background-color:black;"/>
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                 <div class="menu_section">
                     <h3>General</h3>

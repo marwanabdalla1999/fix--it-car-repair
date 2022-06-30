@@ -22,7 +22,7 @@
             <br>
             <br>
             <label><h4>specialized</h4></label>
-            <input type="text" class="form-control" name='specialized' required />
+            <input type="text" class="form-control" name='specibackendalized' required />
             <br>
             <br>
             <br>

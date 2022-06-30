@@ -3,20 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\add_user_car;
+use App\customer;
 use App\order_model;
 use App\provider_data;
 use App\transactions_history;
 use App\user_cards;
-use http\Env\Response;
 use Illuminate\Http\Request;
-use App\customer;
 use Illuminate\Support\Facades\Validator;
-use Twilio\Rest\Client;
 use Illuminate\Support\Str;
+use Twilio\Rest\Client;
 
 class customer1 extends Controller
 {
-
     function change_name(Request $request){
 
         $user_id = customer::where('phone', $request->phone)->first();
@@ -35,8 +33,6 @@ class customer1 extends Controller
 
 
     }
-
-
     function verfiy_otp(Request $request){
         $retval='';
         $user_id = customer::where('phone', $request->phone)->first();
@@ -68,9 +64,7 @@ class customer1 extends Controller
             return $retval;
         }
     }
-
-
- private function  send_otp(Request $request,$otp){
+    private function  send_otp(Request $request,$otp){
 
     $sid = "AC8c9c14a5e759d4f2c334c5db8e47f100"; // Your Account SID from www.twilio.com/console
     $token = "185eb72ee597fc68f0c92f427afc9d32"; // Your Auth Token from www.twilio.com/console
@@ -88,10 +82,7 @@ class customer1 extends Controller
 
     return 'otp has been sent';
 }
-
-
-
-function register_user(Request $request,$otp)
+    function register_user(Request $request,$otp)
 {
 
     $validator = Validator::make($request->all(), [
@@ -122,8 +113,7 @@ function register_user(Request $request,$otp)
 
 
 }
-
-function session(Request $request)
+    function session(Request $request)
 {
     $user_id = customer::where([['id', '=', $request->id], ['token', '=', $request->token]])->first();
     if ($user_id) {
@@ -153,58 +143,40 @@ function session(Request $request)
 
 }
 
+
+
     function register(Request $request){
 
         $otp = random_int(10000, 99999);
         $user_id = customer::where('phone', $request->phone)->first();
         if (!$user_id){
             if($this->register_user($request,$otp)=="true"){
-
-               return $this->send_otp($request,$otp);
-
-
-            }
-            else if ($this->register_user($request,$otp)=="invalid number")
-            {
-                return 'this number is invalid';
-            }
-
-            else return "connection error";
-
-
-        }
+               return $this->send_otp($request,$otp);}
+            else if ($this->register_user($request,$otp)=="invalid number") {
+                return 'this number is invalid';}
+            else return "connection error";}
        else if ($request->phone == $user_id->phone) {
            if ($user_id->name == ""|| $user_id->name == null) {
                $user_id->otp = $otp;
                $user_id->save();
                $this->send_otp($request, $otp);
-               return "registertion not completed";
-           }
+               return "registertion not completed";}
            else {
-
            $user_id->otp = $otp;
            $user_id->save();
            $this->send_otp($request, $otp);
-
-           return "registered before";}
-       }
-
-
-
-
+           return "registered before";}}
         else{
             if($this->register_user($request,$otp)){
-
                 return $this->send_otp($request,$otp);
             }
                 else return "connection error";
-
-        }
-
-    }
+        }}
 
 
-       function register_card(Request $request){
+
+
+    function register_card(Request $request){
            $update_card_data=user_cards::where('mask_pan',$request->masked_pan)->get();
            foreach ($update_card_data as $card_data){
                $card_data->token=$request->token;
@@ -231,7 +203,6 @@ function session(Request $request)
 
 
 }
-
     function get_user_cards(Request $request){
 
         $data = user_cards::where('user_id',$request->id)->get();
@@ -287,8 +258,6 @@ function session(Request $request)
 
 
     }
-
-
     function gettoken(Request $request){
         $data = customer::where('id',$request->id)->first();
         if ($data){
@@ -302,8 +271,6 @@ function session(Request $request)
         else "error";
 
     }
-
-
     function get_transactions(Request $request){
         $data = transactions_history::where('user_id',$request->id)->get();
         if ($data){
@@ -314,7 +281,6 @@ function session(Request $request)
             "Empty";
         }
     }
-
     function get_current_balance(Request $request){
         $data = customer::where('id',$request->id)->first();
         if ($data){
@@ -325,7 +291,6 @@ function session(Request $request)
             "not_found";
         }
     }
-
     function get_tech_locations(Request $request){
         $data = provider_data::all();
         if ($data){

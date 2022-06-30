@@ -8,41 +8,23 @@ use App\brand_type_model;
 use App\order_model;
 use App\provider_data;
 use App\provider_login;
-use App\requests;
-use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use phpDocumentor\Reflection\Utils;
-use Google\Cloud\Storage;
+
 class technican extends Controller
 {
     function add_new_provider(Request $request){
-
-
-    /*    if($request->hasFile('photo')){
-            $file= $request->file('photo');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('/temp/photos'), $filename);
-            $data2['photo']= $filename;
-
-        }*/
         $data1 = provider_login::Create([
 
             'password' => $request->password,
             'token' => Str::random(50),
             'username' => $request->username]);
-
-
         $data = provider_data::Create([
-
             'name' => $request->name,
             'phone' => $request->phone,
             'provider_id' => $data1->id,
             'specialized_in' =>$request->specialized,
-          //  'photo' => $this->image($data2['photo'])
-
         ]);
-
        $response= response()-> json([
                 'id'=>$data->provider_id,
                'name'=>$data->name,
@@ -51,12 +33,7 @@ class technican extends Controller
                'phone'=>$data->phone,
                'specialized_in' => $request->specialized,
                'rate' => $data->rate
-
-
-           ]
-        );
-
-
+           ]);
         return $response;
     }
 

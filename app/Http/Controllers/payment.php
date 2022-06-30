@@ -15,14 +15,7 @@ class payment extends Controller
     }
 
 
-    function gettoken(){
-        $response=HTTP::post('https://accept.paymob.com/api/auth/tokens',
-        [
-            'api_key'=>'ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2TVRjd016ZzNMQ0p1WVcxbElqb2lhVzVwZEdsaGJDSjkudWRsam1TV0RaQnVjVFk0OE5sbDNyRGg2TXdvQWtjeEtXeGRpWU5Rb1hXaUU3SjJxLWVPSFJramxkWmc3clhyTlNaWUxJX2dXYTlGRVhYRGROeGZuWEE='
-        ]);
 
-return $response->object()->token;
-    }
 
     function createOrder($token,$request){
 
@@ -70,5 +63,12 @@ return $response->object()->token;
         $response = Http::post('https://accept.paymob.com/api/acceptance/payment_keys', $data);
         return $response->object()->token;
     }
+    function gettoken(){
+        $response=HTTP::post('https://accept.paymob.com/api/auth/tokens',
+            [
+                'api_key'=>'ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2TVRjd016ZzNMQ0p1WVcxbElqb2lhVzVwZEdsaGJDSjkudWRsam1TV0RaQnVjVFk0OE5sbDNyRGg2TXdvQWtjeEtXeGRpWU5Rb1hXaUU3SjJxLWVPSFJramxkWmc3clhyTlNaWUxJX2dXYTlGRVhYRGROeGZuWEE='
+            ]);
 
+        return $response->object()->token;
+    }
 }

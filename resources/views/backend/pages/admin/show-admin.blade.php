@@ -36,12 +36,7 @@
                                             <td>{{$admin->email}}</td>
 
                                             <td>{{$admin->created_at->diffForHumans()}}</td>
-                                            <td>
-                                                <a href="{{route('admin-edit').'/'.$admin->id}}" class="btn btn-success btn-xs">
-                                                    <i class="fa fa-edit"></i> Edit</a>
-                                                <a href="{{route('admin-delete').'/'.$admin->id}}" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-xs">
-                                                    <i class="fa fa-trash"></i> Delete</a>
-                                            </td>
+                                          
 
                                         </tr>
                                     @empty

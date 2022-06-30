@@ -2,7 +2,7 @@
     <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-                <a href="#" class="site_title"><i class="fa fa-user"></i> <span>Fix it</span></a>
+                <img src="{{asset('assets/backend/build/images/logo.png')}}" class="site_title"/>
             </div>
 
             <div class="clearfix"></div>

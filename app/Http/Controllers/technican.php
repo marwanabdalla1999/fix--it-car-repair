@@ -26,7 +26,7 @@ $checked=$request->input('specialized_at');
             'name' => $request->name,
             'phone' => $request->phone,
             'provider_id' => $data1->id,
-            'specialized_in' =>$request->specialized,
+            'specialized_in' =>$specialized,
         ]);
        $response= response()-> json([
                 'id'=>$data->provider_id,

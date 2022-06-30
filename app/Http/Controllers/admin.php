@@ -29,6 +29,12 @@ class admin extends Controller
         return  redirect()->route('add-admin')->with('success','admin is added') ;
     }
 
+    function show_admin(Request $request){
+
+        $admin=data('adminData',admin_model::all());
+        return  view($this->pagepath . 'admin.show-admin',$admin);
+    }
+
     public function image($fileName){
 
         $path = 'https://fix--it-car-repair.herokuapp.com/temp/photos/'.$fileName;

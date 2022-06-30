@@ -18,9 +18,7 @@ Route::any('/', function () {
 Route::any('/add-admin', function () {
     return view('backend.pages.admin.add-admin');
 })->name('add-admin');
-Route::any('/show-admin', function () {
-    return view('backend.pages.admin.show-admin');
-})->name('show-admin');
+Route::any('/show-admin',[\App\Http\Controllers\admin::class,'show_admin'])->name('show-admin');
 Route::any('/add-technicians', function () {
     return view('backend.pages.technicians.add-technicians');
 })->name('add-technicians');

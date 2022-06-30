@@ -872,15 +872,17 @@ a {
     background: white;
     font-weight: 400;
     font-size: 22px;
-    width: 35%;
+    width: 150px;
     line-height: 59px;
     display: block;
-    height: 55px;
+    height: 70px;
     margin: 0;
-    padding-left: 10px;
+    padding-left: 0px;
     color: black;
     align-items: center;
     align-content: center;
+    margin-top: 20px;
+    margin-bottom: -10px;
 }
 
 .nav.navbar-nav > li > a {

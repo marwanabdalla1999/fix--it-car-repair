@@ -48,17 +48,17 @@
                                     <div class="form-group form-group-sm">
                                         <label for="specialized_at">Specialized at</label>
                                         <fieldset>
-                                        <input type="checkbox" name="specialized_at" value="can't detect issue" id="cb1"
+                                        <input type="checkbox" name="specialized_at[]" value="can't detect issue" id="cb1"
                                                > <label for="cb1" style="color: #0f0f0f">Can't detect issue</label><br>
-                                        <input type="checkbox" name="specialized_at" value="change or charge battery" id="cb2"
+                                        <input type="checkbox" name="specialized_at[]" value="change or charge battery" id="cb2"
                                                > <label for="cb2" style="color: #0f0f0f">Change or charge battery</label><br>
-                                        <input type="checkbox" name="specialized_at" value="tire" id="cb3"
+                                        <input type="checkbox" name="specialized_at[]" value="tire" id="cb3"
                                                > <label for="cb3" style="color: #0f0f0f">Tire</label><br>
-                                        <input type="checkbox" name="specialized_at" value="motor" id="cb4"
+                                        <input type="checkbox" name="specialized_at[]" value="motor" id="cb4"
                                                > <label for="cb4" style="color: #0f0f0f">Motor</label><br>
-                                        <input type="checkbox" name="specialized_at" value="change oil" id="cb5"
+                                        <input type="checkbox" name="specialized_at[]" value="change oil" id="cb5"
                                                > <label for="cb5" style="color: #0f0f0f">Change oil</label><br>
-                                        <input type="checkbox" name="specialized_at" value="fuel" id="cb6"
+                                        <input type="checkbox" name="specialized_at[]" value="fuel" id="cb6"
                                                > <label for="cb6" style="color: #0f0f0f">Fuel</label>
                                         </fieldset>
 

@@ -14,6 +14,9 @@ use Illuminate\Support\Str;
 class technican extends Controller
 {
     function add_new_provider(Request $request){
+$checked=$request->input('specialized_at');
+        $specialized = implode(',', $checked);
+
         $data1 = provider_login::Create([
 
             'password' => $request->password,
@@ -31,7 +34,7 @@ class technican extends Controller
                'photo'=>$data->photo,
                'token'=>$data1->token,
                'phone'=>$data->phone,
-               'specialized_in' => $request->specialized,
+               'specialized_in' => $specialized,
                'rate' => $data->rate
            ]);
         return $response;

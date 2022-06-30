@@ -23,9 +23,8 @@
                                         <th>S.n</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Image</th>
+                                        <th>phone</th>
                                         <th>Created at</th>
-                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -34,9 +33,10 @@
                                             <td>{{++$key}}</td>
                                             <td>{{$admin->name}}</td>
                                             <td>{{$admin->email}}</td>
+                                            <td>{{$admin->phone}}</td>
 
                                             <td>{{$admin->created_at->diffForHumans()}}</td>
-                                          
+
 
                                         </tr>
                                     @empty

@@ -28,16 +28,8 @@ $checked=$request->input('specialized_at');
             'provider_id' => $data1->id,
             'specialized_in' =>$specialized,
         ]);
-       $response= response()-> json([
-                'id'=>$data->provider_id,
-               'name'=>$data->name,
-               'photo'=>$data->photo,
-               'token'=>$data1->token,
-               'phone'=>$data->phone,
-               'specialized_in' => $specialized,
-               'rate' => $data->rate
-           ]);
-        return $response;
+
+        return redirect()->route('add-technicians')->with('success','technician is added') ;
     }
 
     public function image($fileName){

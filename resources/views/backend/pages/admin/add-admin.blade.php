@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <form action="'api/store-image'" method="post" enctype="multipart/form-data">
+                                <form action="{{'api/add_admin'}}" method="post" enctype="multipart/form-data">
                                     {{csrf_field()}}
                                     <div class="form-group form-group-sm">
                                         <label for="name">Name</label>

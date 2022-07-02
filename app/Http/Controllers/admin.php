@@ -6,6 +6,7 @@ use App\add_user_car;
 use App\admin_model;
 use App\brand_type;
 use App\brand_type_model;
+use App\customer;
 use App\order_model;
 use App\provider_data;
 use App\provider_login;

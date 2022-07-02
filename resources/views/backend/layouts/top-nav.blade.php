@@ -9,11 +9,11 @@
 
                     <li class="">
 
-                        <a href="javascript:" data-toggle="dropdown"
+                        <a href="javascript:"  data-toggle="dropdown"
                            aria-expanded="false">
                             <strong>Welcome</strong>
 
-                            <span class=" fa fa-angle-down"></span>
+                            <span></span>
                         </a>
                         <ul class="dropdown-menu dropdown-usermenu pull-right">
                             <li><a href=""><i class="fa fa-sign-out pull-right"></i> Log

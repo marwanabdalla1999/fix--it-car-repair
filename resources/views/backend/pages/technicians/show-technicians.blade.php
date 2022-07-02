@@ -31,7 +31,7 @@
                                     <tbody>
                                     @forelse($adminData as $key=>$admin)
                                         <tr>
-                                            <td>{{++$key}}</td>
+                                            <td>{{++$id}}</td>
                                             <td>{{$admin->name}}</td>
                                             <td>{{$admin->phone}}</td>
                                             <td>{{$admin->specialized_in}}</td>

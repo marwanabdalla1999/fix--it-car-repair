@@ -29,10 +29,10 @@
                                     <tbody>
                                     @forelse($adminData as $key=>$admin)
                                         <tr>
-                                            <td>{{$admin->noadmin}}</td>
-                                            <td>{{$admin->user}}</td>
-                                            <td>{{$admin->tech}}</td>
-                                            <td>{{$admin->order}}</td>
+                                            <td>{{$admin['noadmin']}}</td>
+                                            <td>{{$admin['user']}}</td>
+                                            <td>{{$admin['tech']}}</td>
+                                            <td>{{$admin['order']}}</td>
 
 
 

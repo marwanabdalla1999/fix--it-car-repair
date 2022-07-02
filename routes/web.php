@@ -24,7 +24,10 @@ Route::any('/add-technicians', function () {
 })->name('add-technicians');
 Route::any('/show-technicians', [\App\Http\Controllers\technican::class,'show_tech'])->name('show-technicians');
 
+Route::any('/getorders', [\App\Http\Controllers\Order::class,'getorders'])->name('getorders');
 
+Route::any('/getorders_in_progress', [\App\Http\Controllers\order::class,'getorders_in_progress']
+)->name('getorders_in_progress');
 
 Route::get('/', function () {
     return view('backend/pages/admin/add-admin');

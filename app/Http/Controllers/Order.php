@@ -570,7 +570,7 @@ if ($car_data) {
 
     function getorders(){
         $orders=order_model::all();
-        return  view('backend.pages.technicians.orders')->with('adminData',$orders);
+        return  view('backend.pages.orders.orders')->with('adminData',$orders);
 
     }
 

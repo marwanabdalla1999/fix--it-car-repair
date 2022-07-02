@@ -42,7 +42,7 @@ class admin extends Controller
         $order=count(order_model::all());
         $tech=count(provider_data::all());
 
-        $data['admin']=$admin;
+        $data['noadmin']=$admin;
         $data['user']=$user;
         $data['order']=$order;
         $data['tech']=$tech;

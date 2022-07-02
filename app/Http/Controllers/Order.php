@@ -574,25 +574,13 @@ if ($car_data) {
 
     }
 
-    function getorders_in_progress(Request $request){
-        $order = order_model::where('id', $request->order_id)->first();
-        if($order) {
-            $user_wallet = customer::where('id', $order->user_id)->first();
-
-            return response()->json([
-                'user_wallet' => $user_wallet->wallet,
-                'voucher' => $user_wallet->voucher,
-                'order_price' => $order->amount,
-
-
-            ]);
-
-        }
-        else{
-            return "error";
-        }
+    function getorders_in_progress(){
+        $orders=order_model::where('state', 'in progress')->orWhere('state', 'wait for paying')->get();
+        return  view('backend.pages.orders.orders_inprogress')->with('adminData',$orders);
 
     }
+
+
 
 
 }

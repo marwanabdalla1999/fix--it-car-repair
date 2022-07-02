@@ -41,7 +41,7 @@
                         <li><a><i class="fa fa-folder"></i> Orders <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
                                 <li><a href="{{route('getorders')}}">Orders in progress</a></li>
-                                <li><a href="{{route('getorders')}}">All Orders</a></li>
+                                <li><a href="{{route('getorders_in_progress')}}">All Orders</a></li>
 
                             </ul>
                         </li>
@@ -52,7 +52,6 @@
                         <li><a><i class="fa fa-folder"></i> Users <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
                                 <li><a href="{{route('getusers')}}">Show Users</a></li>
-                                <li><a href="{{route('getusers')}}">Find User</a></li>
                             </ul>
                         </li>
 

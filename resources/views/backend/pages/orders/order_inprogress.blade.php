@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Show Admin</h2>
+                        <h2>Show Orders in progress</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -21,19 +21,42 @@
                                     <thead>
                                     <tr>
                                         <th>S.n</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>phone</th>
+                                        <th>Issue</th>
+                                        <th>Distance</th>
+                                        <th>tech id</th>
+                                        <th>user id</th>
+                                        <th>time</th>
+                                        <th>Address</th>
+                                        <th>Cost</th>
+                                        <th>card used</th>
+                                        <th>payed amount</th>
+                                        <th>payed from wallet</th>
+                                        <th>Voucher</th>
+                                        <th>Payment way</th>
+
+                                        <th>state</th>
+
                                         <th>Created at</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @forelse($adminData as $key=>$admin)
                                         <tr>
-                                            <td>{{++$key}}</td>
-                                            <td>{{$admin->name}}</td>
-                                            <td>{{$admin->email}}</td>
-                                            <td>{{$admin->phone}}</td>
+                                            <td>{{$admin->id}}</td>
+                                            <td>{{$admin->issue}}</td>
+                                            <td>{{$admin->distance}}</td>
+                                            <td>{{$admin->tech_id}}</td>
+                                            <td>{{$admin->user_id}}</td>
+                                            <td>{{$admin->time}}</td>
+                                            <td>{{$admin->address}}</td>
+                                            <td>{{$admin->amount}}</td>
+                                            <td>{{$admin->card_used}}</td>
+                                            <td>{{$admin->payed_amount}}</td>
+                                            <td>{{$admin->amount_from_wallet}}</td>
+                                            <td>{{$admin->voucher}}</td>
+                                            <td>{{$admin->payment_way}}</td>
+
+                                            <td>{{$admin->state}}</td>
 
                                             <td>{{$admin->created_at->diffForHumans()}}</td>
 

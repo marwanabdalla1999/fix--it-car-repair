@@ -42,7 +42,7 @@
                                     <tbody>
                                     @forelse($adminData as $key=>$admin)
                                         <tr>
-                                            <td>{{++$key}}</td>
+                                            <td>{{$admin->id}}</td>
                                             <td>{{$admin->issue}}</td>
                                             <td>{{$admin->distance}}</td>
                                             <td>{{$admin->tech_id}}</td>

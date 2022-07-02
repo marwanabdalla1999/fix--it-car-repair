@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::any('getorders', [\App\Http\Controllers\Order::class,'getorders'])->name('getorders');
+Route::any('home', [\App\Http\Controllers\Order::class,'getorders'])->name('home');
 Route::any('/add-admin', function () {
     return view('backend.pages.admin.add-admin');
 })->name('add-admin');

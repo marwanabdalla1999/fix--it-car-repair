@@ -576,7 +576,7 @@ if ($car_data) {
 
     function getorders_in_progress(){
         $orders=order_model::where('state', 'in progress')->orWhere('state', 'wait for paying')->get();
-        return  view('backend.pages.orders.orders_inprogress')->with('adminData',$orders);
+        return  view('backend.pages.orders.order_inprogress')->with('adminData',$orders);
 
     }
 

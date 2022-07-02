@@ -143,7 +143,11 @@ class customer1 extends Controller
 
 }
 
+    function getusers(){
+        $orders=customer::all();
+        return  view('backend.pages.users.show-users')->with('adminData',$orders);
 
+    }
 
     function register(Request $request){
 

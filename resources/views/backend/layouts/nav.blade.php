@@ -51,8 +51,8 @@
 
                         <li><a><i class="fa fa-folder"></i> Users <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
-                                <li><a href="">Show Users</a></li>
-                                <li><a href="">Find User</a></li>
+                                <li><a href="{{route('getusers')}}">Show Users</a></li>
+                                <li><a href="{{route('getusers')}}">Find User</a></li>
                             </ul>
                         </li>
 

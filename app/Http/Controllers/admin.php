@@ -37,7 +37,7 @@ class admin extends Controller
     }
     function home(Request $request){
 
-        $admin=(string)count(admin_model::all());
+        $admin=count(admin_model::all());
         $user=(string)count(customer::all());
         $order=(string)count(order_model::all());
         $tech=(string)count(provider_data::all());

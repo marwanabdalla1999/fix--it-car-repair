@@ -7,7 +7,7 @@
 
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>Admin Dashboard</h3>
+                        <h5>Admin Dashboard</h5>
                     </div>
 
                     <div class="title_right">

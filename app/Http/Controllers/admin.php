@@ -37,10 +37,10 @@ class admin extends Controller
     }
     function home(Request $request){
 
-        $admin=count(admin_model::all());
-        $user=count(customer::all());
-        $order=count(order_model::all());
-        $tech=count(provider_data::all());
+        $admin=(string)count(admin_model::all());
+        $user=(string)count(customer::all());
+        $order=(string)count(order_model::all());
+        $tech=(string)count(provider_data::all());
 
         $data['noadmin']=$admin;
         $data['user']=$user;

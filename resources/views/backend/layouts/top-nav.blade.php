@@ -9,9 +9,9 @@
 
                     <li class="">
 
-                        <a href="javascript:" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                        <a href="javascript:" data-toggle="dropdown"
                            aria-expanded="false">
-                            <p>Welcome</p>
+                            <strong>Welcome</strong>
 
                             <span class=" fa fa-angle-down"></span>
                         </a>

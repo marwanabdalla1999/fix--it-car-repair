@@ -34,6 +34,21 @@ class admin extends Controller
         $admin=admin_model::all();
         return  view('backend.pages.admin.show-admin')->with('adminData',$admin);
     }
+    function home(Request $request){
+
+        $admin=count(admin_model::all());
+        $user=count(customer::all());
+        $order=count(order_model::all());
+        $tech=count(provider_data::all());
+
+        $data['admin']=$admin;
+        $data['user']=$user;
+        $data['order']=$order;
+        $data['tech']=$tech;
+
+
+        return  view('backend.pages.home.home')->with('adminData',$data);
+    }
 
     public function image($fileName){
 

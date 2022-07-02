@@ -11,8 +11,7 @@
 
                         <a href="javascript:" class="user-profile dropdown-toggle" data-toggle="dropdown"
                            aria-expanded="false">
-                            <img src=""
-                                 alt="">
+                            <p>Welcome</p>
 
                             <span class=" fa fa-angle-down"></span>
                         </a>

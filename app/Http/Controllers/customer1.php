@@ -155,7 +155,7 @@ class customer1 extends Controller
         $user_id = customer::where('phone', $request->phone)->first();
         if (!$user_id){
             if($this->register_user($request,$otp)=="true"){
-               return $this->send_otp($request,$otp);}
+               return "registertion not completed";}
             else if ($this->register_user($request,$otp)=="invalid number") {
                 return 'this number is invalid';}
             else return "connection error";}
@@ -172,7 +172,7 @@ class customer1 extends Controller
            return "registered before";}}
         else{
             if($this->register_user($request,$otp)){
-                return $this->send_otp($request,$otp);
+                return "registertion not completed";
             }
                 else return "connection error";
         }}
